@@ -25,7 +25,7 @@
         <div class="d-flex flex-wrap">
           <div
             class="product"
-            v-for="item in mabylike1"
+            v-for="item in mabylike2"
             :key="item.id"
             @click="passProduct(item.id)"
           >
@@ -47,49 +47,49 @@
   </div>
 </template>
 <script>
-import "swiper/dist/css/swiper.css";
-import { swiper, swiperSlide } from "vue-awesome-swiper";
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
+
 export default {
-  name: "carrousel",
+  name: 'carrousel',
   data() {
     return {
       swiperOption: {
         autoplay: {
           delay: 10000,
-          disableOnInteraction: false
+          disableOnInteraction: false,
         },
-        direction: "horizontal",
+        direction: 'horizontal',
 
         speed: 1000,
         loop: false,
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        }
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
       },
       products: [],
       mabylike1: [],
-      mabylike2: []
+      mabylike2: [],
     };
   },
   computed: {
     swiper() {
       return this.$refs.mySwiper.swiper;
-    }
+    },
   },
   components: {
     swiper,
-    swiperSlide
+    swiperSlide,
   },
 
   methods: {
     getProducts() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/products/all`;
-      vm.$http.get(api).then(response => {
+      vm.$http.get(api).then((response) => {
         vm.products = response.data.products;
-        for (let i = 0; i <= 7; i++) {
-          let randomNum = Math.floor(Math.random() * vm.products.length);
+        for (let i = 0; i <= 7; i += 1) {
+          const randomNum = Math.floor(Math.random() * vm.products.length);
           if (i <= 3) {
             vm.mabylike1.push(vm.products[randomNum]);
             vm.products.splice(randomNum, 1);
@@ -101,12 +101,12 @@ export default {
       });
     },
     passProduct(id) {
-      this.$emit("getproductid", id);
-    }
+      this.$emit('getproductid', id);
+    },
   },
   created() {
     this.getProducts();
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -120,7 +120,7 @@ li {
 }
 .product {
   width: 23%;
-  margin: 2% 1% 2% 1%;
+  margin: 2% 1% 5% 1%;
 }
 
 img {

@@ -14,7 +14,10 @@
         <th>品名</th>
         <th>
           數量
-          <button type="button" class="btn btn-sm btn-outline-danger" @click="showEdit=true">修改</button>
+          <button type="button" class="btn btn-sm btn-outline-danger"
+           @click="showEdit=true">
+            修改
+            </button>
           <button
             type="button"
             class="btn btn-sm btn-outline-success ml-1"
@@ -72,7 +75,9 @@
     <div class="input-group mb-3 input-group-sm coupon-size">
       <input type="text" class="form-control" v-model="coupon_code" placeholder="請輸入優惠碼" />
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" @click="addCouponCode()">套用優惠碼</button>
+        <button class="btn btn-outline-secondary" type="button" @click="addCouponCode()">
+          套用優惠碼
+          </button>
       </div>
     </div>
     <div class="my-5 row justify-content-center customer">
@@ -162,39 +167,41 @@
   </div>
 </template>
 <script>
-import Footer from "../../components/frontend/Footer";
+import Footer from '../../components/frontend/Footer.vue';
+
 export default {
   components: {
-    Footer
+    Footer,
   },
   data() {
     return {
       showEdit: false,
       cart: {},
       mergeCart: [],
-      coupon_code: "",
+      coupon_code: '',
       noCoupon: false,
       isLoading: false,
       form: {
         user: {
-          name: "",
-          email: "",
-          tel: "",
-          address: ""
+          name: '',
+          email: '',
+          tel: '',
+          address: '',
         },
-        message: ""
-      }
+        message: '',
+      },
     };
   },
   methods: {
     changeQty(item, plus) {
+      const product = item;
       if (plus) {
-        item.qty += 1;
+        product.qty += 1;
       } else {
         if (item.qty <= 0) {
           return;
         }
-        item.qty -= 1;
+        product.qty -= 1;
       }
     },
     confirm() {
@@ -203,25 +210,26 @@ export default {
     addtoCart() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
-      vm.mergeCart.forEach(item => {
+      vm.mergeCart.forEach((item) => {
         if (item.qty === item.originQty) {
           return;
-        } else if (item.qty === 0) {
+        }
+        if (item.qty === 0) {
           vm.removeCartItem(item);
           return;
         }
         const cart = {
           product_id: item.productId,
-          qty: item.qty
+          qty: item.qty,
         };
         vm.removeCartItem(item);
-        vm.$http.post(api, { data: cart }).then(response => {});
+        vm.$http.post(api, { data: cart }).then(() => {});
       });
     },
     removeCartItem(item) {
       const vm = this;
       vm.isLoading = true;
-      item.allId.forEach(id => {
+      item.allId.forEach((id) => {
         const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${id}`;
         vm.$http.delete(api).then(() => {
           vm.getCart();
@@ -232,7 +240,7 @@ export default {
     removeSingalCart(allId) {
       const vm = this;
       vm.isLoading = true;
-      allId.forEach(id => {
+      allId.forEach((id) => {
         const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${id}`;
         vm.loadingItem = allId;
         vm.$http.delete(api).then(() => {
@@ -245,10 +253,10 @@ export default {
       const vm = this;
       vm.isLoading = true;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
-      vm.$http.get(api).then(response => {
+      vm.$http.get(api).then((response) => {
         vm.cart = response.data.data;
         vm.mergeCart = [];
-        vm.cart.carts.forEach(function(mergeProduct) {
+        vm.cart.carts.forEach(function mergerepeat(mergeProduct) {
           if (!this[mergeProduct.product.title]) {
             this[mergeProduct.product.title] = {
               title: mergeProduct.product.title,
@@ -257,7 +265,7 @@ export default {
               price: 0,
               allId: [],
               unit: mergeProduct.product.unit,
-              productId: mergeProduct.product.id
+              productId: mergeProduct.product.id,
             };
             vm.mergeCart.push(this[mergeProduct.product.title]);
           }
@@ -276,7 +284,7 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/coupon`;
       const coupon = { code: vm.coupon_code };
       vm.isLoading = true;
-      vm.$http.post(api, { data: coupon }).then(response => {
+      vm.$http.post(api, { data: coupon }).then((response) => {
         vm.noCoupon = false;
         if (!response.data.success) {
           vm.noCoupon = true;
@@ -290,9 +298,9 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order`;
       const order = vm.form;
       vm.isLoading = true;
-      vm.$validator.validate().then(valid => {
+      vm.$validator.validate().then((valid) => {
         if (valid) {
-          vm.$http.post(api, { data: order }).then(response => {
+          vm.$http.post(api, { data: order }).then((response) => {
             if (response.data.success) {
               vm.$router.push(`/CustomerCheckout/${response.data.orderId}`);
             }
@@ -302,11 +310,11 @@ export default {
           vm.isLoading = false;
         }
       });
-    }
+    },
   },
   created() {
     this.getCart();
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>

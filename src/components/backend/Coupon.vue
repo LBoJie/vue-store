@@ -23,7 +23,9 @@
           </td>
           <td class="d-flex">
             <button class="btn btn-outline-danger btn-sm" @click="openDelModal(item)">刪除</button>
-            <button class="btn btn-outline-primary btn-sm" @click="openModal(false,item)">編輯</button>
+            <button class="btn btn-outline-primary btn-sm" @click="openModal(false,item)">
+              編輯
+            </button>
           </td>
         </tr>
       </tbody>
@@ -147,8 +149,9 @@
   </div>
 </template>
 <script>
-import $ from "jquery";
-import Pagination from "./Pagination";
+import $ from 'jquery';
+import Pagination from './Pagination.vue';
+
 export default {
   data() {
     return {
@@ -156,7 +159,7 @@ export default {
       pagination: {},
       tempCoupon: {},
       isNew: false,
-      isLoading: false
+      isLoading: false,
     };
   },
   components: { Pagination },
@@ -168,13 +171,14 @@ export default {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupons?page=${page}`;
       vm.isLoading = true;
-      vm.$http.get(api).then(response => {
+      vm.$http.get(api).then((response) => {
         vm.isLoading = false;
         vm.coupons = response.data.coupons;
         vm.pagination = response.data.pagination;
       });
     },
     openModal(isNew, item) {
+      const vm = this;
       if (isNew) {
         vm.tempCoupon = {};
         vm.isNew = true;
@@ -182,26 +186,26 @@ export default {
         vm.tempCoupon = Object.assign({}, item);
         vm.isNew = false;
       }
-      $("#couponModal").modal("show");
+      $('#couponModal').modal('show');
     },
     openDelModal(item) {
-      $("#delCouponModal").modal("show");
+      $('#delCouponModal').modal('show');
       this.tempCoupon = Object.assign({}, item);
     },
     updateCoupon() {
       const vm = this;
-      let httpMethod = "post";
+      let httpMethod = 'post';
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon`;
       if (!vm.isNew) {
         api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${vm.tempCoupon.id}`;
-        httpMethod = "put";
+        httpMethod = 'put';
       }
-      vm.$http[httpMethod](api, { data: vm.tempCoupon }).then(response => {
+      vm.$http[httpMethod](api, { data: vm.tempCoupon }).then((response) => {
         if (response.data.success) {
-          $("#couponModal").modal("hide");
+          $('#couponModal').modal('hide');
           vm.getCoupons();
         } else {
-          $("#couponModal").modal("hide");
+          $('#couponModal').modal('hide');
           vm.getCoupons();
         }
       });
@@ -209,16 +213,16 @@ export default {
     delCoupon() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${vm.tempCoupon.id}`;
-      vm.$http.delete(api).then(response => {
+      vm.$http.delete(api).then((response) => {
         if (response.data.success) {
-          $("#delCouponModal").modal("hide");
+          $('#delCouponModal').modal('hide');
           vm.getCoupons();
         } else {
-          $("#delCouponModal").modal("hide");
+          $('#delCouponModal').modal('hide');
           vm.getCoupons();
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>

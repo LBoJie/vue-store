@@ -31,16 +31,17 @@
   </div>
 </template>
 <script>
-import Pagination from "./Pagination";
+import Pagination from './Pagination.vue';
+
 export default {
   data() {
     return {
       orders: [],
-      pagination: {}
+      pagination: {},
     };
   },
   components: {
-    Pagination
+    Pagination,
   },
   created() {
     this.getOrders();
@@ -50,12 +51,12 @@ export default {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/orders?page=${page}`;
       vm.isLoading = true;
-      vm.$http.get(api).then(response => {
+      vm.$http.get(api).then((response) => {
         vm.isLoading = false;
         vm.orders = response.data.orders;
         vm.pagination = response.data.pagination;
       });
-    }
-  }
+    },
+  },
 };
 </script>

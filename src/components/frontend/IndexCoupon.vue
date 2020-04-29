@@ -88,16 +88,17 @@
 </template>
 
 <script>
-import ReservationAlert from "./ReservationAlert";
+import ReservationAlert from './ReservationAlert.vue';
+
 export default {
   components: {
-    ReservationAlert
+    ReservationAlert,
   },
   methods: {
     reservation() {
-      this.$bus.$emit("reservationDone");
-    }
-  }
+      this.$bus.$emit('reservationDone');
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

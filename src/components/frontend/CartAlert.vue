@@ -12,17 +12,16 @@
 
 <script>
 export default {
-  name: "Navbar",
   data() {
     return {
-      messages: []
+      messages: [],
     };
   },
   methods: {
     updateMessage() {
       const timestamp = Math.floor(new Date() / 1000);
       this.messages.push({
-        timestamp
+        timestamp,
       });
       this.removeMessageWithTiming(timestamp);
     },
@@ -38,14 +37,14 @@ export default {
           }
         });
       }, 2500);
-    }
+    },
   },
   created() {
     const vm = this;
-    vm.$bus.$on("alertCart", () => {
+    vm.$bus.$on('alertCart', () => {
       vm.updateMessage();
     });
-  }
+  },
 };
 </script>
 

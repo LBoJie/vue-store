@@ -38,11 +38,11 @@
 
 <script>
 export default {
-  props: ["pagination"],
+  props: ['pagination'],
   methods: {
     transferPagination(page) {
-      this.$emit("getPagination", page);
-    }
-  }
+      this.$emit('getPagination', page);
+    },
+  },
 };
 </script>

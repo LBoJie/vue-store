@@ -26,7 +26,9 @@
           </td>
           <td class="d-flex">
             <button class="btn btn-outline-danger btn-sm" @click="openDelModal(item)">刪除</button>
-            <button class="btn btn-outline-primary btn-sm" @click="openModal(false,item)">編輯</button>
+            <button class="btn btn-outline-primary btn-sm" @click="openModal(false,item)">
+              編輯
+            </button>
           </td>
         </tr>
       </tbody>
@@ -218,8 +220,9 @@
   </div>
 </template>
 <script>
-import $ from "jquery";
-import Pagination from "./Pagination";
+import $ from 'jquery';
+import Pagination from './Pagination.vue';
+
 export default {
   data() {
     return {
@@ -228,18 +231,18 @@ export default {
       tempProduct: {},
       isNew: false,
       isLoading: false,
-      status: { fileUploading: false }
+      status: { fileUploading: false },
     };
   },
   components: {
-    Pagination
+    Pagination,
   },
   methods: {
     getProducts(page = 1) {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/products?page=${page}`;
       vm.isLoading = true;
-      vm.$http.get(api).then(response => {
+      vm.$http.get(api).then((response) => {
         vm.isLoading = false;
         vm.products = response.data.products;
         vm.pagination = response.data.pagination;
@@ -253,26 +256,26 @@ export default {
         this.tempProduct = Object.assign({}, item);
         this.isNew = false;
       }
-      $("#productModal").modal("show");
+      $('#productModal').modal('show');
     },
     openDelModal(item) {
       this.tempProduct = Object.assign({}, item);
-      $("#delProductModal").modal("show");
+      $('#delProductModal').modal('show');
     },
     updateProduct() {
       const vm = this;
-      let httpMethod = "post";
+      let httpMethod = 'post';
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product`;
       if (!vm.isNew) {
         api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${vm.tempProduct.id}`;
-        httpMethod = "put";
+        httpMethod = 'put';
       }
-      vm.$http[httpMethod](api, { data: vm.tempProduct }).then(response => {
+      vm.$http[httpMethod](api, { data: vm.tempProduct }).then((response) => {
         if (response.data.success) {
-          $("#productModal").modal("hide");
+          $('#productModal').modal('hide');
           vm.getProducts();
         } else {
-          $("#productModal").modal("hide");
+          $('#productModal').modal('hide');
           vm.getProducts();
         }
       });
@@ -280,12 +283,12 @@ export default {
     delProduct() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${vm.tempProduct.id}`;
-      vm.$http.delete(api).then(response => {
+      vm.$http.delete(api).then((response) => {
         if (response.data.success) {
-          $("#delProductModal").modal("hide");
+          $('#delProductModal').modal('hide');
           vm.getProducts();
         } else {
-          $("#delProductModal").modal("hide");
+          $('#delProductModal').modal('hide');
           vm.getProducts();
         }
       });
@@ -295,26 +298,26 @@ export default {
       const uploadedFile = vm.$refs.files.files[0];
       const formData = new FormData();
       vm.status.fileUploading = true;
-      formData.append("file-to-upload", uploadedFile);
+      formData.append('file-to-upload', uploadedFile);
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`;
       vm.$http
         .post(url, formData, {
           headers: {
-            "content-Type": "multipart/form-data"
-          }
+            'content-Type': 'multipart/form-data',
+          },
         })
-        .then(response => {
+        .then((response) => {
           vm.status.fileUploading = false;
           if (response.data.success) {
-            vm.$set(vm.tempProduct, "imageUrl", response.data.imageUrl);
+            vm.$set(vm.tempProduct, 'imageUrl', response.data.imageUrl);
           } else {
-            vm.$bus.$emit("message:push", response.data.message, "danger");
+            vm.$bus.$emit('message:push', response.data.message, 'danger');
           }
         });
-    }
+    },
   },
   created() {
     this.getProducts();
-  }
+  },
 };
 </script>

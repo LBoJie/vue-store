@@ -82,7 +82,9 @@
     <div class="input-group mb-3 input-group-sm">
       <input type="text" class="form-control" v-model="coupon_code" placeholder="請輸入優惠碼" />
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" @click="addCouponCode()">套用優惠碼</button>
+        <button class="btn btn-outline-secondary" type="button" @click="addCouponCode()">
+          套用優惠碼
+          </button>
       </div>
     </div>
     <div class="my-5 row justify-content-center">
@@ -217,25 +219,26 @@
   </div>
 </template>
 <script>
-import $ from "jquery";
+import $ from 'jquery';
+
 export default {
   data() {
     return {
       products: [],
       product: {},
       isLoading: false,
-      loadingItem: "",
+      loadingItem: '',
       cart: {},
-      coupon_code: "",
+      coupon_code: '',
       form: {
         user: {
-          name: "",
-          email: "",
-          tel: "",
-          address: ""
+          name: '',
+          email: '',
+          tel: '',
+          address: '',
         },
-        message: ""
-      }
+        message: '',
+      },
     };
   },
   methods: {
@@ -243,7 +246,7 @@ export default {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/products?page=${page}`;
       vm.isLoading = true;
-      vm.$http.get(api).then(response => {
+      vm.$http.get(api).then((response) => {
         vm.isLoading = false;
         vm.products = response.data.products;
       });
@@ -252,10 +255,10 @@ export default {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/product/${id}`;
       vm.loadingItem = id;
-      vm.$http.get(api).then(response => {
-        $("#productModal").modal("show");
+      vm.$http.get(api).then((response) => {
+        $('#productModal').modal('show');
         vm.product = response.data.product;
-        vm.loadingItem = "";
+        vm.loadingItem = '';
       });
     },
     addtoCart(id, qty = 1) {
@@ -264,20 +267,20 @@ export default {
       vm.loadingItem = id;
       const cart = {
         product_id: id,
-        qty
+        qty,
       };
 
-      vm.$http.post(api, { data: cart }).then(response => {
-        vm.loadingItem = "";
+      vm.$http.post(api, { data: cart }).then(() => {
+        vm.loadingItem = '';
         vm.getCart();
-        $("#productModal").modal("hide");
+        $('#productModal').modal('hide');
       });
     },
     getCart() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
       vm.isLoading = true;
-      vm.$http.get(api).then(response => {
+      vm.$http.get(api).then((response) => {
         vm.isLoading = false;
         vm.cart = response.data.data;
       });
@@ -296,7 +299,7 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/coupon`;
       const coupon = { code: vm.coupon_code };
       vm.isLoading = true;
-      vm.$http.post(api, { data: coupon }).then(response => {
+      vm.$http.post(api, { data: coupon }).then(() => {
         vm.isLoading = false;
         vm.getCart();
       });
@@ -306,9 +309,9 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order`;
       const order = vm.form;
       vm.isLoading = true;
-      vm.$validator.validate().then(valid => {
+      vm.$validator.validate().then((valid) => {
         if (valid) {
-          vm.$http.post(api, { data: order }).then(response => {
+          vm.$http.post(api, { data: order }).then((response) => {
             if (response.data.success) {
               vm.$router.push(`/CustomerCheckout/${response.data.orderId}`);
             }
@@ -318,11 +321,11 @@ export default {
           vm.isLoading = false;
         }
       });
-    }
+    },
   },
   created() {
     this.getProducts();
     this.getCart();
-  }
+  },
 };
 </script>

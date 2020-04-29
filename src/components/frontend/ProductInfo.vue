@@ -36,26 +36,27 @@
   </div>
 </template>
 <script>
-import cartAlert from "./CartAlert";
-import ProductSwiper from "./ProductSwiper";
+import cartAlert from './CartAlert.vue';
+import ProductSwiper from './ProductSwiper.vue';
+
 export default {
   data() {
     return {
       product: {},
       isLoading: false,
-      loadingItem: ""
+      loadingItem: '',
     };
   },
   components: {
     cartAlert,
-    ProductSwiper
+    ProductSwiper,
   },
   methods: {
     getProduct(ProductId) {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/product/${ProductId}`;
       vm.isLoading = true;
-      vm.$http.get(api).then(response => {
+      vm.$http.get(api).then((response) => {
         vm.isLoading = false;
         vm.product = response.data.product;
         vm.product.qty = 1;
@@ -67,25 +68,25 @@ export default {
       vm.loadingItem = id;
       const cart = {
         product_id: id,
-        qty
+        qty,
       };
-      vm.$http.post(api, { data: cart }).then(response => {
-        vm.loadingItem = "";
-        vm.$bus.$emit("refreshCart");
-        vm.$bus.$emit("alertCart");
+      vm.$http.post(api, { data: cart }).then(() => {
+        vm.loadingItem = '';
+        vm.$bus.$emit('refreshCart');
+        vm.$bus.$emit('alertCart');
       });
     },
     goIndex() {
-      this.$router.push(`/index/products/all/products`);
+      this.$router.push('/index/products/all/products');
     },
     goProduct(id) {
       this.$router.push(`/index/product/${id}`);
       this.getProduct(id);
-    }
+    },
   },
   created() {
     this.getProduct(this.$route.params.ProductId);
-  }
+  },
 };
 </script>
 <style lang="scss" scope>

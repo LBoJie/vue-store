@@ -70,41 +70,41 @@
   </div>
 </template>
 <script>
-import $ from "jquery";
+import $ from 'jquery';
 
 export default {
   data() {
     return {
       mergeCart: [],
       cart: {},
-      loadingItem: ""
+      loadingItem: '',
     };
   },
 
   methods: {
     showMenu() {
-      $("body").toggleClass("menu-show");
+      $('body').toggleClass('menu-show');
     },
     showCart() {
-      $("#cart").toggleClass("show");
+      $('#cart').toggleClass('show');
     },
     hideCart() {
-      $("#cart").toggleClass("show");
+      $('#cart').toggleClass('show');
     },
     getCart() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
-      vm.$http.get(api).then(response => {
+      vm.$http.get(api).then((response) => {
         vm.cart = response.data.data;
         vm.mergeCart = [];
-        vm.cart.carts.forEach(function(mergeProduct) {
+        vm.cart.carts.forEach(function mergeRepeat(mergeProduct) {
           if (!this[mergeProduct.product.title]) {
             this[mergeProduct.product.title] = {
               title: mergeProduct.product.title,
               qty: 0,
               price: 0,
               allId: [],
-              unit: mergeProduct.product.unit
+              unit: mergeProduct.product.unit,
             };
             vm.mergeCart.push(this[mergeProduct.product.title]);
           }
@@ -116,27 +116,27 @@ export default {
     },
     removeCartItem(allId) {
       const vm = this;
-      allId.forEach(id => {
+      allId.forEach((id) => {
         const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${id}`;
         vm.loadingItem = allId;
         vm.$http.delete(api).then(() => {
-          vm.loadingItem = "";
+          vm.loadingItem = '';
           vm.getCart();
         });
       });
     },
     goOrder() {
-      this.$router.push("/customerorder");
-      $("#cart").toggleClass("show");
-    }
+      this.$router.push('/customerorder');
+      $('#cart').toggleClass('show');
+    },
   },
   created() {
     const vm = this;
     vm.getCart();
-    vm.$bus.$on("refreshCart", () => {
+    vm.$bus.$on('refreshCart', () => {
       vm.getCart();
     });
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>

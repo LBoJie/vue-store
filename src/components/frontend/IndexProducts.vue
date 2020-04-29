@@ -32,34 +32,37 @@
 export default {
   data() {
     return {
-      titleImgUrl: ""
+      titleImgUrl: '',
     };
   },
   methods: {
     changeImg(category) {
       const vm = this;
       switch (category) {
-        case "all":
-          vm.titleImgUrl = require("../../assets/image/allproducttitle.jpg");
+        case 'all':
+          vm.titleImgUrl = require('../../assets/image/allproducttitle.jpg');
           break;
-        case "sofa":
-          vm.titleImgUrl = require("../../assets/image/sofatitle.jpg");
+        case 'sofa':
+          vm.titleImgUrl = require('../../assets/image/sofatitle.jpg');
           break;
-        case "diningtable":
-          vm.titleImgUrl = require("../../assets/image/desktitle.jpg");
+        case 'diningtable':
+          vm.titleImgUrl = require('../../assets/image/desktitle.jpg');
           break;
-        case "bed":
-          vm.titleImgUrl = require("../../assets/image/bedtitle.jpg");
+        case 'bed':
+          vm.titleImgUrl = require('../../assets/image/bedtitle.jpg');
           break;
-        case "wardrobe":
-          vm.titleImgUrl = require("../../assets/image/wardrobetitle.jpg");
+        case 'wardrobe':
+          vm.titleImgUrl = require('../../assets/image/wardrobetitle.jpg');
+          break;
+        default:
+          vm.titleImgUrl = require('../../assets/image/allproducttitle.jpg');
           break;
       }
-    }
+    },
   },
   created() {
-    this.changeImg("all");
-  }
+    this.changeImg('all');
+  },
 };
 </script>
 <style lang="scss" scoped>

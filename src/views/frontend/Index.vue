@@ -40,16 +40,18 @@
   </div>
 </template>
 <script>
-import IndexNavbar from "../../components/frontend/IndexNavbar";
-import Footer from "../../components/frontend/Footer";
-import $ from "jquery";
+import $ from 'jquery';
+import IndexNavbar from '../../components/frontend/IndexNavbar.vue';
+import Footer from '../../components/frontend/Footer.vue';
+
 let lastScrollY = 0;
-$(window).scroll(function() {
-  let st = this.scrollY;
+
+$(window).scroll(function showNavbar() {
+  const st = this.scrollY;
   if (st < lastScrollY) {
-    $(".header").removeClass("hideUp");
+    $('.header').removeClass('hideUp');
   } else {
-    $(".header").addClass("hideUp");
+    $('.header').addClass('hideUp');
   }
   lastScrollY = st;
 });
@@ -57,13 +59,13 @@ $(window).scroll(function() {
 export default {
   components: {
     IndexNavbar,
-    Footer
-  }
+    Footer,
+  },
 };
 </script>
 <style lang="scss" scoped>
-.bg-index {
-  // background-color: #f1faee;
+.bg-index{
+  background-color: #f1faee;
 }
 .btn {
   border-radius: 10px !important;

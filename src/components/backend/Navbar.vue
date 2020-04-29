@@ -1,6 +1,8 @@
 <template>
   <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <router-link class="navbar-brand col-sm-3 col-md-2 mr-0" to="/index/home">Liao's Factory</router-link>
+    <router-link class="navbar-brand col-sm-3 col-md-2 mr-0" to="/index/home">
+    Liao's Factory
+    </router-link>
     <input
       class="form-control form-control-dark w-100"
       type="text"
@@ -20,12 +22,12 @@ export default {
     signOut() {
       const api = `${process.env.VUE_APP_APIPATH}/logout`;
       const vm = this;
-      vm.$http.post(api).then(response => {
+      vm.$http.post(api).then((response) => {
         if (response.data.success) {
-          vm.$router.push("/login");
+          vm.$router.push('/login');
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>

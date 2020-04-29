@@ -10,7 +10,9 @@
       <div class="aboutus">
         <h2 class="aboutus-title">廖氏木頭工房 &nbsp;&nbsp;&nbsp;一甲子的堅持</h2>
         <p class="aboutus-content jqshow">
-          廖氏木頭工房創立於30年代末，已歷經五代，以批發木頭起家，隨著台灣社會經濟的成長，以本身的專業於1998年創立廖氏工廠，一路踏著堅實的步履，從進口木頭到製作家具出口，建立良好的工業製作基礎，
+          廖氏木頭工房創立於30年代末，已歷經五代，以批發木頭起家，隨著台灣社會經濟的成長，以本身的專業於1998年創立廖氏工廠，
+          一路踏著堅實的步履，從進口木頭到製作家具出口，
+          建立良好的工業製作基礎，
           擁有著五代的木工技術與歷鍊過國際大廠合作的洗禮，因應台灣生活形態的改變，滿足顧客對家居空間的需求不同而作的家具設計，真正融入日常生活。
         </p>
         <router-link class="noMore text-cyan h3" to="/index/products/all">
@@ -104,7 +106,8 @@
               <h3 class="text-center maker-title">職人打造</h3>
               <p
                 class="maker-text"
-              >我們的團隊裡有許多台灣一流的木工師傅，他們擁有的經驗與技術都是十分珍貴的資產，需要被保存與重視。廖氏木頭工房將這些技法的運用保留在家具的設計與製作裡頭，希望能延續傳承這樣的精神！</p>
+              >我們的團隊裡有許多台灣一流的木工師傅，他們擁有的經驗與技術都是十分珍貴的資產，需要被保存與重視。
+              廖氏木頭工房將這些技法的運用保留在家具的設計與製作裡頭，希望能延續傳承這樣的精神！</p>
             </div>
           </div>
           <div class="test">
@@ -122,78 +125,76 @@
 
 
 <script>
-import Swiper from "./Swiper";
-import $ from "jquery";
-$(document).ready(function() {
+import $ from 'jquery';
+import Swiper from './Swiper.vue';
+
+$(document).ready(() => {
   function Jump() {
-    $(".jump")
-      .animate({ top: "-10px" }, 300)
-      .animate({ top: "0px" }, 300);
+    $('.jump')
+      .animate({ top: '-10px' }, 300)
+      .animate({ top: '0px' }, 300);
     setTimeout(Jump, 600);
   }
   Jump();
 
-  $(window).scroll(function() {
-    $(".jqshow").each(function(i) {
-      var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-      var bottom_of_window = $(window).scrollTop() + $(window).height();
-      if (bottom_of_window > bottom_of_object) {
-        $(".aboutus-title").animate({ opacity: "1" }, 2000);
-        $(".aboutus-content").animate({ opacity: "1" }, 2000);
+  $(window).scroll(() => {
+    $('.jqshow').each(function show() {
+      const bottomOfObject = $(this).offset().top + $(this).outerHeight();
+      const bottomOfWindow = $(window).scrollTop() + $(window).height();
+      if (bottomOfWindow > bottomOfObject) {
+        $('.aboutus-title').animate({ opacity: '1' }, 2000);
+        $('.aboutus-content').animate({ opacity: '1' }, 2000);
       }
     });
 
-    $(".slidetree").each(function(i) {
-      var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-      var bottom_of_window = $(window).scrollTop() + $(window).height();
-      if (bottom_of_window > bottom_of_object) {
-        $(".slidetree").animate({ left: "0" }, 2000);
+    $('.slidetree').each(function show() {
+      const bottomOfObject = $(this).offset().top + $(this).outerHeight();
+      const bottomOfWindow = $(window).scrollTop() + $(window).height();
+      if (bottomOfWindow > bottomOfObject) {
+        $('.slidetree').animate({ left: '0' }, 2000);
       }
     });
 
-    $(".slidepro").each(function(i) {
-      var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-      var bottom_of_window = $(window).scrollTop() + $(window).height();
-      if (bottom_of_window > bottom_of_object) {
-        $(".slidepro").animate({ right: "0" }, 2000);
+    $('.slidepro').each(function show() {
+      const bottomOfObject = $(this).offset().top + $(this).outerHeight();
+      const bottomOfWindow = $(window).scrollTop() + $(window).height();
+      if (bottomOfWindow > bottomOfObject) {
+        $('.slidepro').animate({ right: '0' }, 2000);
       }
     });
-    $(".slidemaker").each(function(i) {
-      var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-      var bottom_of_window = $(window).scrollTop() + $(window).height();
-      if (bottom_of_window > bottom_of_object) {
-        $(".maker").animate({ left: "0" }, 1500);
-        $(".test").animate({ right: "0" }, 1500);
+    $('.slidemaker').each(function show() {
+      const bottomOfObject = $(this).offset().top + $(this).outerHeight();
+      const bottomOfWindow = $(window).scrollTop() + $(window).height();
+      if (bottomOfWindow > bottomOfObject) {
+        $('.maker').animate({ left: '0' }, 1500);
+        $('.test').animate({ right: '0' }, 1500);
       }
     });
   });
 
-  $(function() {
-    $("#go-tree").click(function(e) {
+  $(() => {
+    $('#go-tree').click((e) => {
       e.preventDefault();
-      $("html,body").animate({ scrollTop: $(".tree-text").offset().top }, 500);
+      $('html,body').animate({ scrollTop: $('.tree-text').offset().top }, 500);
     });
   });
-  $(function() {
-    $("#go-pro").click(function(e) {
+  $(() => {
+    $('#go-pro').click((e) => {
       e.preventDefault();
-      $("html,body").animate(
-        { scrollTop: $(".design-text").offset().top },
-        500
-      );
+      $('html,body').animate({ scrollTop: $('.design-text').offset().top }, 500);
     });
   });
-  $(function() {
-    $(".go-maker-test").click(function(e) {
+  $(() => {
+    $('.go-maker-test').click((e) => {
       e.preventDefault();
-      $("html,body").animate({ scrollTop: $(".maker").offset().top }, 500);
+      $('html,body').animate({ scrollTop: $('.maker').offset().top }, 500);
     });
   });
 });
 export default {
   components: {
-    Swiper
-  }
+    Swiper,
+  },
 };
 </script>
 <style lang="scss" scoped>

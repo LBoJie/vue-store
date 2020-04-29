@@ -39,29 +39,29 @@
   </div>
 </template>
 <script>
-import cartAlert from "./CartAlert";
-import $ from "jquery";
+import cartAlert from './CartAlert.vue';
+
 export default {
   data() {
     return {
       ty: true,
-      category: "",
+      category: '',
       products: [],
       filterproducts: [],
       isLoading: false,
-      titleImgUrl: "",
-      isDisable: false
+      titleImgUrl: '',
+      isDisable: false,
     };
   },
   components: {
-    cartAlert
+    cartAlert,
   },
   methods: {
     filterProducts() {
       const vm = this;
       vm.filterproducts = [];
-      vm.products.forEach(function(item) {
-        if (vm.category === "全部家具") {
+      vm.products.forEach((item) => {
+        if (vm.category === '全部家具') {
           vm.filterproducts.push(item);
         }
         if (item.category === vm.category) {
@@ -74,7 +74,7 @@ export default {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/products/all`;
       vm.isLoading = true;
-      vm.$http.get(api).then(response => {
+      vm.$http.get(api).then((response) => {
         vm.isLoading = false;
         vm.products = response.data.products;
         vm.filterproducts = vm.products;
@@ -91,68 +91,64 @@ export default {
       vm.loadingItem = id;
       const cart = {
         product_id: id,
-        qty
+        qty,
       };
-      this.$http.post(api, { data: cart }).then(response => {
-        vm.loadingItem = "";
-        this.$bus.$emit("refreshCart");
-        this.$bus.$emit("alertCart");
+      this.$http.post(api, { data: cart }).then(() => {
+        vm.loadingItem = '';
+        this.$bus.$emit('refreshCart');
+        this.$bus.$emit('alertCart');
         this.isDisable = false;
       });
-    }
+    },
   },
   watch: {
-    $route(to, from) {
+    $route() {
       switch (this.$route.params.Category) {
-        case "all":
-          this.category = "全部家具";
-          this.titleImgUrl = require("../../assets/image/allproducttitle.jpg");
+        case 'all':
+          this.category = '全部家具';
           break;
-        case "sofa":
-          this.category = "沙發";
-          this.titleImgUrl = require("../../assets/image/sofatitle.jpg");
+        case 'sofa':
+          this.category = '沙發';
           break;
-        case "diningtable":
-          this.category = "餐桌";
-          this.titleImgUrl = require("../../assets/image/desktitle.jpg");
+        case 'diningtable':
+          this.category = '餐桌';
           break;
-        case "bed":
-          this.category = "床組";
-          this.titleImgUrl = require("../../assets/image/bedtitle.jpg");
+        case 'bed':
+          this.category = '床組';
           break;
-        case "wardrobe":
-          this.category = "衣櫃";
-          this.titleImgUrl = require("../../assets/image/wardrobetitle.jpg");
+        case 'wardrobe':
+          this.category = '衣櫃';
+          break;
+        default:
+          this.category = '全部家具';
           break;
       }
       this.filterProducts();
-    }
+    },
   },
   created() {
     this.getProducts();
     switch (this.$route.params.Category) {
-      case "all":
-        this.category = "全部家具";
-        this.titleImgUrl = require("../../assets/image/allproducttitle.jpg");
+      case 'all':
+        this.category = '全部家具';
         break;
-      case "sofa":
-        this.category = "沙發";
-        this.titleImgUrl = require("../../assets/image/sofatitle.jpg");
+      case 'sofa':
+        this.category = '沙發';
         break;
-      case "diningtable":
-        this.category = "餐桌";
-        this.titleImgUrl = require("../../assets/image/desktitle.jpg");
+      case 'diningtable':
+        this.category = '餐桌';
         break;
-      case "bed":
-        this.category = "床組";
-        this.titleImgUrl = require("../../assets/image/bedtitle.jpg");
+      case 'bed':
+        this.category = '床組';
         break;
-      case "wardrobe":
-        this.category = "衣櫃";
-        this.titleImgUrl = require("../../assets/image/wardrobetitle.jpg");
+      case 'wardrobe':
+        this.category = '衣櫃';
+        break;
+      default:
+        this.category = '全部家具';
         break;
     }
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>

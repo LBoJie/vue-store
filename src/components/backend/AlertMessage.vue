@@ -21,10 +21,10 @@
 
 <script>
 export default {
-  name: "Navbar",
+  name: 'Navbar',
   data() {
     return {
-      messages: []
+      messages: [],
     };
   },
   methods: {
@@ -33,7 +33,7 @@ export default {
       this.messages.push({
         message,
         status,
-        timestamp
+        timestamp,
       });
       this.removeMessageWithTiming(timestamp);
     },
@@ -49,14 +49,14 @@ export default {
           }
         });
       }, 5000);
-    }
+    },
   },
   created() {
     const vm = this;
-    vm.$bus.$on("message:push", (message, status = "warning") => {
+    vm.$bus.$on('message:push', (message, status = 'warning') => {
       vm.updateMessage(message, status);
     });
-  }
+  },
 };
 </script>
 
