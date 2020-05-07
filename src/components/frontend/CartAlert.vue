@@ -55,7 +55,6 @@ export default {
   top: 40%;
   right: 45%;
   z-index: 1100;
-  font-size: 16px;
 }
 
 @media (max-width: 768px) {

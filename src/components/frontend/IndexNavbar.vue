@@ -1,20 +1,24 @@
 <template>
   <div class="header">
     <h1 class="indexlogo">
-      <router-link to="/index/home">
+      <router-link to="/index">
         <img src="../../assets/image/IndexLogo.svg" alt />
       </router-link>
     </h1>
+    <div class="headerInfo d-flex flex-row-reverse align-items-center">
+        <button href="#" class="showmenu btn btn-outline-danger" @click="showMenu">
+      <i class="fas fa-sliders-h"></i>
+    </button>
     <button class="btn btn-cart cart" type="button" @click="showCart" v-if="cart.carts">
       <i class="fas fa-shopping-cart text-dark fa-2x mt-1"></i>
       <span class="badge badge-pill badge-danger">{{ mergeCart.length }}</span>
     </button>
-    <ul class="menu">
+    <ul class="menu m-0 align-items-center">
       <li>
-        <router-link class="nav-link" to="/index/products/all">Products</router-link>
+        <router-link class="nav-link font-weight-bold" to="/index/products/all">商品列表</router-link>
       </li>
       <li>
-        <router-link class="nav-link" to="/index/coupons">Coupons</router-link>
+        <router-link class="nav-link font-weight-bold" to="/index/coupons">優惠卷</router-link>
       </li>
       <li>
         <router-link class="nav-link" to="/login">
@@ -22,16 +26,14 @@
         </router-link>
       </li>
     </ul>
-
+<div class="clearfix"></div>
+    </div>
     <div class="dropdown">
       <div class="dropdown-menu" id="cart">
         <div class="px-4 py-3">
           <h6 class="text-center">
             <span v-if="cart.final_total!=0">已選擇商品</span>
-            <span v-else>
-              還沒有商品哦 趕緊去
-              <router-link to="/index/products/all">逛逛</router-link>!
-            </span>
+              <router-link class="btn btn-danger btn-md mt-3" to="/index/products/all" v-else>趕緊去逛逛</router-link>
             <button type="button" class="close" @click="hideCart">
               <span>&times;</span>
             </button>
@@ -48,10 +50,10 @@
                 </td>
                 <td class="align-middle">{{ item.title }}</td>
                 <td class="align-middle">{{ item.qty }}{{ item.unit }}</td>
-                <td class="align-middle text-right">{{ item.price|currency }}</td>
+                <td class="align-middle text-right">{{ item.price | currency }}</td>
               </tr>
               <tr class="text-right">
-                <td colspan="4" v-if="cart.final_total!=0">總共:{{ cart.final_total|currency }}</td>
+                <td colspan="4" v-if="cart.final_total!=0">總共:{{ cart.final_total | currency }}</td>
               </tr>
             </tbody>
           </table>
@@ -64,9 +66,6 @@
       </div>
     </div>
 
-    <button href="#" class="showmenu btn btn-outline-danger" @click="showMenu">
-      <i class="fas fa-sliders-h"></i>
-    </button>
   </div>
 </template>
 <script>
@@ -154,6 +153,9 @@ export default {
     transition: all 0.3s;
     transform: scale(1.2);
   }
+   .headerInfo{
+      height: 100%;
+    }
 }
 .indexlogo {
   float: left;
@@ -180,10 +182,9 @@ h1 img {
 }
 .btn-cart {
   position: relative;
-  float: right;
 }
 .showmenu {
-  display: none;
+   display: none;
 }
 
 .menu li {
@@ -192,9 +193,7 @@ h1 img {
 .menu li a {
   color: #343a40;
 }
-.menu {
-  float: right;
-}
+
 .btn-cart .badge {
   position: absolute;
   top: 0px;
@@ -211,7 +210,8 @@ h1 img {
   .showmenu {
     display: block;
     float: right;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-right: 5px;
   }
   .menu {
     max-height: 0px;
@@ -233,9 +233,8 @@ h1 img {
     max-height: 500px;
   }
   .btn-cart {
-    float: none;
     margin-top: 20px;
-    margin-left: 60px;
+    margin-right: 10px;
   }
   .dropdown {
     top: 90px;

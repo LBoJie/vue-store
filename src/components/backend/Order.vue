@@ -16,10 +16,10 @@
             <p
               v-for="product in item.products"
               :key="product.id"
-            >{{ product.product.title }}:{{product.qty}}{{ product.product.unit }}</p>
+            >{{ product.product.title }}:{{ product.qty }}{{ product.product.unit }}</p>
           </td>
 
-          <td class="text-right">{{ item.total |currency }}</td>
+          <td class="text-right">{{ item.total | currency }}</td>
           <td>
             <span v-if="item.is_paid" class="text-success">已付款</span>
             <span v-else>尚未付款</span>

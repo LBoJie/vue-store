@@ -1,21 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-// backend
-import Login from './views/backend/Login.vue';
-import Dashboard from './views/backend/Dashboard.vue';
-import Products from './components/backend/Products.vue';
-import Order from './components/backend/Order.vue';
-import Coupon from './components/backend/Coupon.vue';
-import CustomerOrders from './views/backend/CustomerOrders.vue';
-import CustomerCheckout from './views/backend/CustomerCheckOut.vue';
-// frontend
-import Index from './views/frontend/Index.vue';
-import Home from './components/frontend/Home.vue';
-import IndexProducts from './components/frontend/IndexProducts.vue';
-import CategoryProduct from './components/frontend/CategoryProduct.vue';
-import ProductInfo from './components/frontend/ProductInfo.vue';
-import IndexOrder from './views/frontend/IndexOrder.vue';
-import IndexCoupon from './components/frontend/IndexCoupon.vue';
 
 Vue.use(Router);
 
@@ -24,74 +8,79 @@ export default new Router({
   routes: [
     {
       path: '*',
-      redirect: 'index/home',
+      redirect: 'index',
     },
 
     {
       path: '/index',
       name: 'Index',
-      component: Index,
+      component: () => import('./views/frontend/Index.vue'),
       children: [
         {
-          path: 'product/:ProductId',
-          name: 'ProductInfo',
-          component: ProductInfo,
+          path: '',
+          name: 'Home',
+          component: () => import('./components/frontend/Home.vue'),
         },
         {
           path: 'coupons',
           name: 'IndexCoupon',
-          component: IndexCoupon,
-        },
-        {
-          path: 'home',
-          name: 'Home',
-          component: Home,
+          component: () => import('./components/frontend/IndexCoupon.vue'),
         },
         {
           path: 'products',
           name: 'IndexProducts',
-          component: IndexProducts,
+          component: () => import('./components/frontend/IndexProducts.vue'),
           children: [
             {
               path: ':Category',
               name: 'category',
-              component: CategoryProduct,
+              component: () => import('./components/frontend/CategoryProduct.vue'),
             },
           ],
+        },
+        {
+          path: 'product/:ProductId',
+          name: 'ProductInfo',
+          component: () => import('./components/frontend/ProductInfo.vue'),
+        },
+        {
+          path: 'orderdone',
+          name: 'orderDone',
+          component: () => import('./components/frontend/orderDone.vue'),
         },
       ],
     },
     {
       path: '/customerorder',
       name: 'IndexOrder',
-      component: IndexOrder,
+      component: () => import('./views/frontend/IndexOrder.vue'),
     },
     {
       path: '/login',
       name: 'Login',
-      component: Login,
+      component: () => import('./views/backend/Login.vue'),
     },
     {
       path: '/admin',
       name: 'Dashboard',
-      component: Dashboard,
+      component: () => import('./views/backend/Dashboard.vue'),
       children: [
         {
           path: 'products',
           name: 'Products',
-          component: Products,
+          component: () => import('./components/backend/Products.vue'),
           meta: { requiresAuth: true },
         },
         {
           path: 'order',
           name: 'Order',
-          component: Order,
+          component: () => import('./components/backend/Order.vue'),
           meta: { requiresAuth: true },
         },
         {
           path: 'coupon',
           name: 'Coupon',
-          component: Coupon,
+          component: () => import('./components/backend/Coupon.vue'),
           meta: { requiresAuth: true },
         },
       ],
@@ -99,12 +88,12 @@ export default new Router({
     {
       path: '/customer_order',
       name: 'CustomerOrders',
-      component: CustomerOrders,
+      component: () => import('./views/backend/CustomerOrders.vue'),
     },
     {
       path: '/customercheckout/:OrderId',
       name: 'CustomerCheckout',
-      component: CustomerCheckout,
+      component: () => import('./views/backend/CustomerCheckOut.vue'),
     },
   ],
 });

@@ -10,7 +10,7 @@
           <p class="product-text">{{ item.content }}</p>
           <div class="price d-flex justify-content-between">
             <div class="d-flex">
-              <p class="h4">{{ item.price|currency }}</p>
+              <p class="h4">{{ item.price | currency }}</p>
               <button
                 class="btn btn-danger btn-md ml-3 p-2"
                 :disabled="isDisable"
@@ -77,9 +77,8 @@ export default {
       vm.$http.get(api).then((response) => {
         vm.isLoading = false;
         vm.products = response.data.products;
-        vm.filterproducts = vm.products;
+        vm.filterProducts();
       });
-      vm.filterProducts();
     },
     goProduct(id) {
       this.$router.push(`/index/product/${id}`);
@@ -93,7 +92,7 @@ export default {
         product_id: id,
         qty,
       };
-      this.$http.post(api, { data: cart }).then(() => {
+      vm.$http.post(api, { data: cart }).then(() => {
         vm.loadingItem = '';
         this.$bus.$emit('refreshCart');
         this.$bus.$emit('alertCart');
@@ -148,6 +147,7 @@ export default {
         this.category = '全部家具';
         break;
     }
+    this.$emit('changeImg', this.$route.params.Category);
   },
 };
 </script>
@@ -159,9 +159,6 @@ export default {
     width: 100%;
     height: auto;
   }
-}
-.product-text {
-  font-size: 16px;
 }
 li {
   list-style: none;

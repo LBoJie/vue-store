@@ -44,28 +44,28 @@ import $ from 'jquery';
 import IndexNavbar from '../../components/frontend/IndexNavbar.vue';
 import Footer from '../../components/frontend/Footer.vue';
 
-let lastScrollY = 0;
-
-$(window).scroll(function showNavbar() {
-  const st = this.scrollY;
-  if (st < lastScrollY) {
-    $('.header').removeClass('hideUp');
-  } else {
-    $('.header').addClass('hideUp');
-  }
-  lastScrollY = st;
-});
-
 export default {
   components: {
     IndexNavbar,
     Footer,
   },
+  created() {
+    let lastScrollY = 0;
+    $(window).scroll(function showNavbar() {
+      const st = this.scrollY;
+      if (st < lastScrollY) {
+        $('.header').removeClass('hideUp');
+      } else {
+        $('.header').addClass('hideUp');
+      }
+      lastScrollY = st;
+    });
+  },
 };
 </script>
 <style lang="scss" scoped>
 .bg-index{
-  background-color: #f1faee;
+  background-color: #fff;
 }
 .btn {
   border-radius: 10px !important;
@@ -99,8 +99,6 @@ export default {
   opacity: 0.5;
 }
 @media (max-width: 375px) {
-  .wrap {
-    margin: 0 !important;
-  }
+
 }
 </style>

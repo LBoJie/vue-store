@@ -3,7 +3,7 @@
     <ReservationAlert />
     <h2 class="text-center h1 p-2 anniversary-title text-danger">歡樂周年慶</h2>
     <div class="first mt-5">
-      <h3 class="h2 text-info">優惠第一重! 買越多 省越多</h3>
+      <h3 class="text-info">優惠第一重! 買越多 省越多</h3>
       <div class="coupons mt-md-5 d-flex flex-wrap">
         <div class="coupon">
           <div class="coupon-left text-center">10% off</div>
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="second">
-      <h3 class="h2 text-info">優惠第二重! 來店打卡就送精美小禮品</h3>
+      <h3 class="text-info">優惠第二重! 來店打卡就送精美小禮品</h3>
       <p class="h6">凡是來店打卡，並tag 廖氏木頭工房 ，就送精美木頭杯墊。</p>
       <!-- Button trigger modal -->
       <button
@@ -112,9 +112,6 @@ export default {
   font-weight: 800;
   border-bottom: solid 2px #dc3545;
 }
-label {
-  font-size: 16px;
-}
 .coupons {
   margin-bottom: 100px;
 }
@@ -125,7 +122,6 @@ label {
   border-radius: 5px;
   position: relative;
   display: flex;
-  font-size: 16px;
   font-weight: 600;
 }
 .coupon:after,

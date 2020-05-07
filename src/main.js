@@ -15,7 +15,6 @@ import timeFormatFilter from './filters/timeFormat';
 
 Vue.use(VueI18n);
 Vue.use(VueAxios, axios);
-Vue.use(VueI18n);
 const i18n = new VueI18n({
   locale: 'zhTW',
 });

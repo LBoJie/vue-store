@@ -13,7 +13,7 @@
               <img :src="item.imageUrl" alt />
               <div class="showmore">
                 <span class="goproduct border p-2">前往商品</span>
-                <span class="price">{{ item.price|currency }}</span>
+                <span class="price">{{ item.price | currency }}</span>
               </div>
             </div>
 
@@ -33,7 +33,7 @@
               <img :src="item.imageUrl" alt />
               <div class="showmore">
                 <span class="goproduct border p-2">前往商品</span>
-                <span class="price">{{ item.price|currency }}</span>
+                <span class="price">{{ item.price | currency }}</span>
               </div>
             </div>
 
@@ -156,7 +156,6 @@ img {
 }
 .price {
   position: absolute;
-  font-size: 16px;
   opacity: 0;
   bottom: 5px;
   right: 5px;
@@ -164,7 +163,6 @@ img {
 @media (max-width: 768px) {
   .price {
     opacity: 1 !important;
-    font-size: 24px;
   }
 }
 @media (max-width: 375px) {

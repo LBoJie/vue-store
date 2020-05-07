@@ -1,14 +1,13 @@
 <template>
   <div>
-    <div class="p-3">
-      <h1>
+    <loading :active.sync="isLoading"></loading>
+    <div class="my-5 container">
+       <h1 class="my-5">
         <router-link to="/index/home">
           <img class="indexlogo" src="../../assets/image/IndexLogo.svg" alt />
         </router-link>
       </h1>
-    </div>
-    <div class="my-3 row justify-content-center">
-      <form class="col-md-6" @submit.prevent="payOrder">
+      <form  @submit.prevent="payOrder">
         <table class="table">
           <thead>
             <th>品名</th>
@@ -58,7 +57,8 @@
           </tbody>
         </table>
         <div class="text-right">
-          <router-link class="btn btn-outline-primary d-inline" to="/index/home">回首頁</router-link>
+          <router-link class="btn btn-outline-primary d-inline mr-2" to="/index/home">
+          回首頁</router-link>
           <button class="btn btn-danger" v-if="order.is_paid === false">確認付款去</button>
         </div>
       </form>
@@ -69,6 +69,7 @@
 export default {
   data() {
     return {
+      isLoading: false,
       orderId: '',
       order: {
         user: {},
@@ -79,10 +80,8 @@ export default {
     getOrder() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order/${vm.orderId}`;
-      vm.isLoading = true;
       vm.$http.get(api).then((response) => {
         vm.order = response.data.order;
-        vm.isLoading = false;
       });
     },
     payOrder() {
@@ -93,6 +92,7 @@ export default {
         if (response.data.success) {
           vm.getOrder();
           vm.isLoading = false;
+          vm.$router.push('/index/orderdone');
         }
       });
     },

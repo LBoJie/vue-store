@@ -30,16 +30,16 @@ $grays: map-merge(("100": $gray-100,
     "900": $gray-900),
   $grays);
 //顏色修改
-$blue: #1D3557 !default;
-$indigo: #6610f2 !default;
-$purple: #6f42c1 !default;
+$blue: #3369e7 !default;
+$indigo: #00aeff !default;
+$purple: #8e43e7 !default;
 $pink: #e83e8c !default;
-$red: #E63946 !default;
-$orange: #fd7e14 !default;
-$yellow: #ffc107 !default;
-$green: #20c997 !default;
+$red: #ff4f81 !default;
+$orange: #ff6c5f !default;
+$yellow: #ffc168 !default;
+$green: #2dde98 !default;
 $teal: #20c997 !default;
-$cyan: #457B9D !default;
+$cyan: #1cc7d0 !default;
 
 $colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

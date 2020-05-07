@@ -1,13 +1,12 @@
 <template>
-  <div class="wrap">
+  <div>
     <loading :active.sync="isLoading"></loading>
-    <div class="header mb-5 p-3">
-      <h1>
+    <div class="container ">
+      <h1 class="my-5">
         <router-link to="/index/home">
           <img class="indexlogo" src="../../assets/image/IndexLogo.svg" alt />
         </router-link>
       </h1>
-    </div>
     <table class="table">
       <thead>
         <th></th>
@@ -22,7 +21,7 @@
             type="button"
             class="btn btn-sm btn-outline-success ml-1"
             v-if="showEdit"
-            @click="confirm() ;showEdit=false"
+            @click="addtoCart() ;showEdit=false"
           >確認</button>
         </th>
         <th>單價</th>
@@ -57,13 +56,13 @@
               >-</button>
             </div>
           </td>
-          <td class="align-middle text-right">{{ item.price|currency }}</td>
+          <td class="align-middle text-right">{{ item.price | currency }}</td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
           <td colspan="3" class="text-right">總計</td>
-          <td class="text-right">{{ cart.total|currency }}</td>
+          <td class="text-right">{{ cart.total | currency }}</td>
         </tr>
         <tr v-if="cart.final_total!=cart.total">
           <td colspan="3" class="text-right text-success">折扣價</td>
@@ -80,8 +79,8 @@
           </button>
       </div>
     </div>
-    <div class="my-5 row justify-content-center customer">
-      <form class="col-md-6" @submit.prevent="creatOrder">
+    <div class="my-5">
+      <form class="" @submit.prevent="creatOrder">
         <div class="form-group">
           <label for="useremail">
             <i class="fas fa-asterisk text-danger"></i>Email
@@ -165,6 +164,7 @@
     </div>
     <Footer />
   </div>
+  </div>
 </template>
 <script>
 import Footer from '../../components/frontend/Footer.vue';
@@ -204,9 +204,6 @@ export default {
         product.qty -= 1;
       }
     },
-    confirm() {
-      this.addtoCart();
-    },
     addtoCart() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
@@ -223,7 +220,7 @@ export default {
           qty: item.qty,
         };
         vm.removeCartItem(item);
-        vm.$http.post(api, { data: cart }).then(() => {});
+        vm.$http.post(api, { data: cart });
       });
     },
     removeCartItem(item) {
@@ -321,21 +318,13 @@ export default {
 li {
   list-style-type: none;
 }
-.customer {
-  width: 100%;
-}
+
 .coupon-size {
   width: 500px;
   margin: 0 auto;
 }
 
 @media (max-width: 375px) {
-  .wrap {
-    width: 360px;
-  }
-  .header {
-    display: block;
-  }
   .coupon-size {
     width: 100%;
   }

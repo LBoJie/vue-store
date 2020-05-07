@@ -20,7 +20,8 @@
             <option :value="qty" v-for="qty in 10" :key="qty">{{ qty }}{{ product.unit }}</option>
           </select>
         </div>
-        <button class="btn btn-danger cart" @click="addtoCart(product.id,product.qty)">
+        <button class="btn btn-danger cart" @click="addtoCart(product.id,product.qty)"
+        :disabled="isDisable">
           <i class="fas fa-spinner fa-spin mr-1" v-if="product.id==loadingItem"></i>CART
         </button>
         <button class="btn btn-primary cart mr-2" @click="goIndex">返回列表</button>
@@ -45,6 +46,7 @@ export default {
       product: {},
       isLoading: false,
       loadingItem: '',
+      isDisable: false,
     };
   },
   components: {
@@ -64,6 +66,7 @@ export default {
     },
     addtoCart(id, qty = 1) {
       const vm = this;
+      vm.isDisable = true;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
       vm.loadingItem = id;
       const cart = {
@@ -72,6 +75,7 @@ export default {
       };
       vm.$http.post(api, { data: cart }).then(() => {
         vm.loadingItem = '';
+        vm.isDisable = false;
         vm.$bus.$emit('refreshCart');
         vm.$bus.$emit('alertCart');
       });
@@ -90,9 +94,6 @@ export default {
 };
 </script>
 <style lang="scss" scope>
-.content-text {
-  font-size: 16px;
-}
 .qty-set {
   width: 15%;
   height: 100%;

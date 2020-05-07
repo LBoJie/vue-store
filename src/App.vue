@@ -12,5 +12,7 @@ export default {};
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Microsoft JhengHei", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  color: #343a40;
 }
 </style>

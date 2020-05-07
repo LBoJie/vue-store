@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <router-link class="navbar-brand col-sm-3 col-md-2 mr-0" to="/index/home">
+    <router-link class="navbar-brand col-sm-3 col-md-2 mr-0" to="/index">
     Liao's Factory
     </router-link>
     <input

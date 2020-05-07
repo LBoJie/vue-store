@@ -1,5 +1,5 @@
 <template>
-  <div class="swiperWidth my-5">
+  <div class="swiperWidth">
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
       <swiper-slide>
@@ -28,7 +28,7 @@
   </div>
 </template>
 <script>
-import 'swiper/dist/css/swiper.css';
+import 'swiper/css/swiper.css';
 import { swiper, swiperSlide } from 'vue-awesome-swiper';
 
 export default {
@@ -68,13 +68,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .swiperWidth {
-  width: 60%;
-  height: 450px;
+  height: 800px;
   margin: 0 auto;
 }
 img {
   width: 100%;
-  height: 500px;
+  height: 800px;
 }
 @media (max-width: 768px) {
   .swiperWidth {

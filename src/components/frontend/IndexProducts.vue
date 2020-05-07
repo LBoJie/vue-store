@@ -25,7 +25,7 @@
       </router-link>
     </ul>
 
-    <router-view></router-view>
+    <router-view @changeImg="changeImg"></router-view>
   </div>
 </template>
 <script>
@@ -71,7 +71,7 @@ export default {
   width: 100%;
   img {
     width: 100%;
-    height: 600px;
+    height: 400px;
   }
 }
 ul {
@@ -82,7 +82,6 @@ ul {
 
 a {
   text-decoration: none;
-  font-size: 16px;
   span {
     position: relative;
     color: #333;
@@ -111,8 +110,8 @@ a.active span::after {
 
 .categoryMargin {
   margin: 0 auto;
-  margin-top: 100px;
-  margin-bottom: 50px;
+  margin-top: 48px;
+  margin-bottom: 48px;
   width: 50%;
 }
 @media (max-width: 375px) {
