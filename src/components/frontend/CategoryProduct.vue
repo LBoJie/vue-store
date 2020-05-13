@@ -81,7 +81,7 @@ export default {
       });
     },
     goProduct(id) {
-      this.$router.push(`/index/product/${id}`);
+      this.$router.push(`/product/${id}`);
     },
     addtoCart(id, qty = 1) {
       const vm = this;

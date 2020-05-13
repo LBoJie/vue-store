@@ -3,7 +3,7 @@
     <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
       廖氏木頭工房已經30歲囉! 周年慶活動開跑中
       <strong>
-        <router-link to="/index/coupons">了解更多折扣</router-link>
+        <router-link to="/coupons">了解更多折扣</router-link>
       </strong>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>

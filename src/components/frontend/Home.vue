@@ -23,23 +23,23 @@
           <span>FEATURE</span>
         </h2>
         <div class="category d-flex flex-wrap justify-content-between">
-          <router-link class="categoryAll" to="/index/products/all">
+          <router-link class="categoryAll" to="/products/all">
             <img src="../../assets/image/allproducttitle.jpg" alt style="height: 400px;" />
             <h5 class="p-3 categoryTitle text-center">熱門產品&nbsp;&nbsp; HOT PRODUCTS</h5>
           </router-link>
-          <router-link class="categoryProducts" to="/index/products/sofa">
+          <router-link class="categoryProducts" to="/products/sofa">
             <img src="../../assets/image/sofatitle.jpg" alt />
             <h5 class="p-3 categoryTitle text-center">客廳家具&nbsp;&nbsp; LIVING ROOM</h5>
           </router-link>
-          <router-link class="categoryProducts" to="/index/products/diningtable">
+          <router-link class="categoryProducts" to="/products/diningtable">
             <img src="../../assets/image/desktitle.jpg" alt />
             <h5 class="p-3 categoryTitle text-center">餐廳家具&nbsp; &nbsp;DINING ROOM</h5>
           </router-link>
-          <router-link class="categoryProducts" to="/index/products/bed">
+          <router-link class="categoryProducts" to="/products/bed">
             <img src="../../assets/image/bedtitle.jpg" alt />
             <h5 class="p-3 categoryTitle text-center">臥室家具&nbsp;&nbsp; BEDROOM</h5>
           </router-link>
-          <router-link class="categoryProducts" to="/index/products/wardrobe">
+          <router-link class="categoryProducts" to="/products/wardrobe">
             <img src="../../assets/image/wardrobetitle.jpg" alt />
             <h5 class="p-3 categoryTitle text-center">收納家具&nbsp;&nbsp; STORAGE ROOM</h5>
           </router-link>

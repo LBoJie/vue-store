@@ -81,10 +81,10 @@ export default {
       });
     },
     goIndex() {
-      this.$router.push('/index/products/all/products');
+      this.$router.push('/products/all/products');
     },
     goProduct(id) {
-      this.$router.push(`/index/product/${id}`);
+      this.$router.push(`/product/${id}`);
       this.getProduct(id);
     },
   },

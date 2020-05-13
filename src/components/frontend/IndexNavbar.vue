@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <h1 class="indexlogo">
-      <router-link to="/index">
+      <router-link to="/">
         <img src="../../assets/image/IndexLogo.svg" alt />
       </router-link>
     </h1>
@@ -15,10 +15,10 @@
     </button>
     <ul class="menu m-0 align-items-center">
       <li>
-        <router-link class="nav-link font-weight-bold" to="/index/products/all">商品列表</router-link>
+        <router-link class="nav-link font-weight-bold" to="/products/all">商品列表</router-link>
       </li>
       <li>
-        <router-link class="nav-link font-weight-bold" to="/index/coupons">優惠卷</router-link>
+        <router-link class="nav-link font-weight-bold" to="/coupons">優惠卷</router-link>
       </li>
       <li>
         <router-link class="nav-link" to="/login">
@@ -33,7 +33,8 @@
         <div class="px-4 py-3">
           <h6 class="text-center">
             <span v-if="cart.final_total!=0">已選擇商品</span>
-              <router-link class="btn btn-danger btn-md mt-3" to="/index/products/all" v-else>趕緊去逛逛</router-link>
+              <router-link class="btn btn-danger btn-md mt-3" to="/products/all" v-else>
+              趕緊去逛逛</router-link>
             <button type="button" class="close" @click="hideCart">
               <span>&times;</span>
             </button>

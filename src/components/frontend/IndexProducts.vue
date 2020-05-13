@@ -4,23 +4,23 @@
       <img :src="titleImgUrl" alt />
     </div>
     <ul class="text-center border-secondary categoryMargin py-3">
-      <router-link @click.native="changeImg('all')" class="p-3" to="/index/products/all">
+      <router-link @click.native="changeImg('all')" class="p-3" to="/products/all">
         <span>全部家具</span>
       </router-link>
-      <router-link @click.native="changeImg('sofa')" class="p-3" to="/index/products/sofa">
+      <router-link @click.native="changeImg('sofa')" class="p-3" to="/products/sofa">
         <span>沙發</span>
       </router-link>
       <router-link
         @click.native="changeImg('diningtable')"
         class="p-3"
-        to="/index/products/diningtable"
+        to="/products/diningtable"
       >
         <span>餐桌</span>
       </router-link>
-      <router-link @click.native="changeImg('bed')" class="p-3" to="/index/products/bed">
+      <router-link @click.native="changeImg('bed')" class="p-3" to="/products/bed">
         <span>床組</span>
       </router-link>
-      <router-link @click.native="changeImg('wardrobe')" class="p-3" to="/index/products/wardrobe">
+      <router-link @click.native="changeImg('wardrobe')" class="p-3" to="/products/wardrobe">
         <span>衣櫃</span>
       </router-link>
     </ul>

@@ -3,7 +3,7 @@
     <loading :active.sync="isLoading"></loading>
     <div class="container ">
       <h1 class="my-5">
-        <router-link to="/index/home">
+        <router-link to="/">
           <img class="indexlogo" src="../../assets/image/IndexLogo.svg" alt />
         </router-link>
       </h1>

@@ -3,7 +3,7 @@
     <loading :active.sync="isLoading"></loading>
     <div class="my-5 container">
        <h1 class="my-5">
-        <router-link to="/index/home">
+        <router-link to="/">
           <img class="indexlogo" src="../../assets/image/IndexLogo.svg" alt />
         </router-link>
       </h1>
@@ -57,7 +57,7 @@
           </tbody>
         </table>
         <div class="text-right">
-          <router-link class="btn btn-outline-primary d-inline mr-2" to="/index/home">
+          <router-link class="btn btn-outline-primary d-inline mr-2" to="/">
           回首頁</router-link>
           <button class="btn btn-danger" v-if="order.is_paid === false">確認付款去</button>
         </div>
@@ -92,7 +92,7 @@ export default {
         if (response.data.success) {
           vm.getOrder();
           vm.isLoading = false;
-          vm.$router.push('/index/orderdone');
+          vm.$router.push('/orderdone');
         }
       });
     },

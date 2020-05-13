@@ -14,7 +14,7 @@
         </h2>
         <p class="h2 pt-2">感謝您的訂購！</p>
         <p class="h2 py-2">商品將會在3~5個工作天內送達！</p>
-        <router-link class="btn btn-primary btn-lg" to="/index/products/all">繼續購物</router-link>
+        <router-link class="btn btn-primary btn-lg" to="/products/all">繼續購物</router-link>
       </div>
     </div>
   </div>
