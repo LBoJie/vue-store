@@ -1,30 +1,30 @@
 <template>
   <div>
-    <Swiper class="swiper" />
-    <div class="aboutus d-flex justify-content-center align-items-center">
-      <div class="aboutus-content px-5">
-        <h3 class="aboutus-title font-weight-bold text-center my-4">
-          廖氏木頭工房 &nbsp;&nbsp;&nbsp;一甲子的堅持
-        </h3>
-        <p class="aboutus-text jqshow font-weight-bold">
-          廖氏木頭工房創立於30年代末，已歷經五代，以批發木頭起家，隨著台灣社會經濟的成長，以本身的專業於1998年創立廖氏工廠，
-          一路踏著堅實的步履，從進口木頭到製作家具出口，
-          建立良好的工業製作基礎，
-          擁有著五代的木工技術與歷鍊過國際大廠合作的洗禮，因應台灣生活形態的改變，滿足顧客對家居空間的需求不同而作的家具設計，真正融入日常生活。
-        </p>
-      </div>
-      <div class="text-center flip h3">
-        <i class="fas fa-angle-double-down jump"></i>
-      </div>
-    </div>
+    <Swiper />
     <div class="pt-5 container">
       <div class="content">
         <h2 class="text-center sec-title pb-4">
-          <span>FEATURE</span>
+          <span>Liao's Factory</span>
         </h2>
+        <div class="aboutus d-flex justify-content-center align-items-center mb-4">
+          <div class="aboutus-content px-5">
+            <h3
+              class="aboutus-title font-weight-bold text-center my-4"
+            >廖氏木頭工房 &nbsp;&nbsp;&nbsp;一甲子的堅持</h3>
+            <p class="aboutus-text jqshow font-weight-bold">
+              廖氏木頭工房創立於30年代末，已歷經五代，以批發木頭起家，隨著台灣社會經濟的成長，以本身的專業於1998年創立廖氏工廠，
+              一路踏著堅實的步履，從進口木頭到製作家具出口，
+              建立良好的工業製作基礎，
+              擁有著五代的木工技術與歷鍊過國際大廠合作的洗禮，因應台灣生活形態的改變，滿足顧客對家居空間的需求不同而作的家具設計，真正融入日常生活。
+            </p>
+          </div>
+          <div class="text-center flip h3">
+            <i class="fas fa-angle-double-down jump"></i>
+          </div>
+        </div>
         <div class="category d-flex flex-wrap justify-content-between">
           <router-link class="categoryAll" to="/products/all">
-            <img src="../../assets/image/allproducttitle.jpg" alt style="height: 400px;" />
+            <img src="../../assets/image/allproducttitle.jpg" alt />
             <h5 class="p-3 categoryTitle text-center">熱門產品&nbsp;&nbsp; HOT PRODUCTS</h5>
           </router-link>
           <router-link class="categoryProducts" to="/products/sofa">
@@ -49,7 +49,7 @@
     <div class="principle mt-4" style="background:#f5f5f3;">
       <h2 class="py-5 showAlbum text-center font-weight-bold">[ 廖氏理念 ]</h2>
       <div class="guidelines container">
-        <div class="select-tree mb-5">
+        <div class="select-tree mb-5 p-2">
           <img src="../../assets/image/album1.jpg" class="slidetree" />
           <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
             <div class="select-tree-content">
@@ -64,18 +64,18 @@
 
           <div class="clear"></div>
         </div>
-        <div class="pro-design mb-5">
+        <div class="pro-design mb-5 p-2">
           <img src="../../assets/image/album2.jpg" class="slidepro" />
           <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
             <div class="pro-design-content">
               <h3 class="text-center design-title py-2 font-weight-bold">專業設計</h3>
-              <p class="design-text">
-                廖氏家具團隊，除了擁有著五代的木工技術、歷鍊過國際大廠合作的洗禮之外，為滿足顧客對家居空間的需求不同而作的家具設計，能真正融入生活。
-              </p>
+              <p
+                class="design-text"
+              >廖氏家具團隊，除了擁有著五代的木工技術、歷鍊過國際大廠合作的洗禮之外，為滿足顧客對家居空間的需求不同而作的家具設計，能真正融入生活。</p>
             </div>
           </div>
         </div>
-        <div class="maker mb-5">
+        <div class="maker mb-5 p-2">
           <img src="../../assets/image/album3.jpg" class="slidemaker" />
           <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
             <div class="maker-content">
@@ -83,13 +83,12 @@
               <p class="maker-text">
                 我們的團隊裡有許多台灣一流的木工師傅，他們擁有的經驗與技術都是十分珍貴的資產，需要被保存與重視。
                 因應台灣生活形態的改變，挑選最適合製作的木種、材料表面的塗裝、色彩與保護方式、
-                到需特殊訂作的造型與各項機能，除了提供多種選擇外，也能依照您的需求去設計打造一件件屬於您獨一無二的家具
                 廖氏木頭工房將這些技法的運用保留在家具的設計與製作裡頭，希望能延續傳承這樣的精神！
               </p>
             </div>
           </div>
         </div>
-        <div class="test mb-5">
+        <div class="test mb-5 p-2">
           <img src="../../assets/image/album4.jpg" class="slidetest" />
           <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
             <div class="test-content">
@@ -114,7 +113,7 @@
         ></iframe>
       </div>
       <div class="card" style="width: 48%;">
-        <img src="../../assets/image/store.jpg" class="card-img-top" alt style="height: 300px;" />
+        <img src="../../assets/image/store.jpg" class="card-img-top" alt />
         <div class="card-body">
           <h5 class="card-title text-center">Liao's Factory</h5>
           <p class="card-text"></p>
@@ -168,7 +167,7 @@ export default {
         const bottomOfObject = $(this).offset().top + $(this).outerHeight();
         const bottomOfWindow = $(window).scrollTop() + $(window).height();
         if (bottomOfWindow > bottomOfObject) {
-          $('.slidepro').animate({ right: '8px' }, 1500);
+          $('.slidepro').animate({ right: '10px' }, 1500);
         }
       });
       $('.slidemaker').each(function show() {
@@ -182,17 +181,16 @@ export default {
         const bottomOfObject = $(this).offset().top + $(this).outerHeight();
         const bottomOfWindow = $(window).scrollTop() + $(window).height();
         if (bottomOfWindow > bottomOfObject) {
-          $('.slidetest').animate({ right: '8px' }, 1500);
+          $('.slidetest').animate({ right: '10px' }, 1500);
         }
       });
     });
   },
 };
+
+
 </script>
 <style lang="scss" scoped>
-.swiper {
-  margin-top: 150px;
-}
 .sec-title {
   color: #333;
   position: relative;
@@ -220,6 +218,7 @@ export default {
   }
   img {
     width: 100%;
+    height: 300px;
   }
 }
 .categoryProducts:hover,
@@ -257,7 +256,7 @@ export default {
   background-attachment: fixed;
   .aboutus-content {
     color: #fff;
-    width: 30%;
+    width: 50%;
     background-color: rgba(0, 0, 0, 0.3);
     .aboutus-title {
       opacity: 0;
@@ -273,7 +272,6 @@ export default {
   }
 }
 .select-tree {
-  height: 300px;
   float: right;
   width: 100%;
   overflow: hidden;
@@ -281,33 +279,31 @@ export default {
     position: relative;
     left: -800px;
     float: left;
-    max-width: 40%;
+    width: 40%;
     height: 97%;
-    box-shadow: 8px 8px 8px 0 rgba(0,0,0,.2);
+    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.2);
   }
   .select-tree-content {
     float: right;
-    max-width: 50%;
+    width: 50%;
     color: #333;
-
   }
 }
 .pro-design {
   float: left;
   width: 100%;
   overflow: hidden;
-  height: 300px;
   img {
     float: right;
     position: relative;
     right: -800px;
-    max-width: 40%;
+    width: 40%;
     height: 97%;
-    box-shadow: 8px 8px 8px 0 rgba(0,0,0,.2);
+    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.2);
   }
   .pro-design-content {
     float: left;
-    max-width: 50%;
+    width: 50%;
     color: #333;
   }
 }
@@ -315,37 +311,35 @@ export default {
   float: right;
   width: 100%;
   overflow: hidden;
-  height: 600px;
   img {
     float: left;
     position: relative;
     left: -800px;
-    max-width: 40%;
+    width: 40%;
     height: 97%;
-    box-shadow: 8px 8px 8px 0 rgba(0,0,0,.2);
+    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.2);
   }
   .maker-content {
     float: right;
-    max-width: 50%;
+    width: 50%;
     color: #333;
   }
 }
 .test {
   float: left;
   width: 100%;
-  height: 300px;
   overflow: hidden;
   img {
     float: right;
     position: relative;
     right: -800px;
-    max-width: 40%;
+    width: 40%;
     height: 97%;
-    box-shadow: 8px 8px 8px 0 rgba(0,0,0,.2);
+    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.2);
   }
   .test-content {
     float: left;
-    max-width: 50%;
+    width: 50%;
     color: #333;
   }
 }
@@ -353,7 +347,7 @@ export default {
   .map {
     width: 48%;
     .googleMap {
-      height: 450px;
+      height: 100%;
       width: 100%;
     }
   }
@@ -366,41 +360,41 @@ export default {
   .select-tree {
     img {
       float: none;
-      max-width: 100%;
+      width: 100%;
     }
     .select-tree-content {
       float: none;
-      max-width: 100%;
+      width: 100%;
     }
   }
   .pro-design {
     img {
       float: none;
-      max-width: 100%;
+      width: 100%;
     }
     .pro-design-content {
       float: none;
-      max-width: 100%;
+      width: 100%;
     }
   }
   .test {
     img {
       float: none !important;
-      max-width: 100% !important;
+      width: 100% !important;
     }
     .test-content {
       float: none !important;
-      max-width: 100% !important;
+      width: 100% !important;
     }
   }
   .maker {
     img {
       float: none !important;
-      max-width: 100% !important;
+      width: 100% !important;
     }
     .maker-content {
       float: none !important;
-      max-width: 100% !important;
+      width: 100% !important;
     }
   }
 }

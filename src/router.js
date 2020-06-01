@@ -45,7 +45,7 @@ export default new Router({
         {
           path: 'orderdone',
           name: 'orderDone',
-          component: () => import('./components/frontend/orderDone.vue'),
+          component: () => import('./components/frontend/OrderDone.vue'),
         },
       ],
     },

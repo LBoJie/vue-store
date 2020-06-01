@@ -32,7 +32,7 @@
         <table class="table">
           <tbody>
             <tr>
-              <th width="100">Email</th>
+              <th width="200">Email</th>
               <td>{{ order.user.email }}</td>
             </tr>
             <tr>
@@ -57,16 +57,22 @@
           </tbody>
         </table>
         <div class="text-right">
-          <router-link class="btn btn-outline-primary d-inline mr-2" to="/">
+          <router-link class="btn btn-outline-primary mr-2" to="/">
           回首頁</router-link>
           <button class="btn btn-danger" v-if="order.is_paid === false">確認付款去</button>
         </div>
       </form>
     </div>
+    <Footer class="footer" />
   </div>
 </template>
 <script>
+import Footer from '../../components/frontend/Footer.vue';
+
 export default {
+  components: {
+    Footer,
+  },
   data() {
     return {
       isLoading: false,
@@ -104,4 +110,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 </style>

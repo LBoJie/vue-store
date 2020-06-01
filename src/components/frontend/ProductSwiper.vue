@@ -10,7 +10,7 @@
             @click="passProduct(item.id)"
           >
             <div class="picture">
-              <img :src="item.imageUrl" alt />
+              <img :src="item.imageUrl" class="swiperImg" alt />
               <div class="showmore">
                 <span class="goproduct border p-2">前往商品</span>
                 <span class="price">{{ item.price | currency }}</span>
@@ -30,7 +30,7 @@
             @click="passProduct(item.id)"
           >
             <div class="picture">
-              <img :src="item.imageUrl" alt />
+              <img :src="item.imageUrl" class="swiperImg" alt />
               <div class="showmore">
                 <span class="goproduct border p-2">前往商品</span>
                 <span class="price">{{ item.price | currency }}</span>
@@ -108,6 +108,8 @@ export default {
     this.getProducts();
   },
 };
+
+
 </script>
 <style lang="scss" scoped>
 li {
@@ -123,7 +125,7 @@ li {
   margin: 2% 1% 5% 1%;
 }
 
-img {
+.swiperImg {
   width: 100%;
   height: 100%;
 }

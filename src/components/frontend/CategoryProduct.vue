@@ -20,7 +20,7 @@
               </button>
             </div>
             <span class="pt-2">
-              detail
+              更多
               <i class="fas fa-arrow-right"></i>
             </span>
           </div>
@@ -150,16 +150,10 @@ export default {
     this.$emit('changeImg', this.$route.params.Category);
   },
 };
+
+
 </script>
 <style lang="scss" scoped>
-.imgTitle {
-  margin: 0 auto;
-  max-width: 35%;
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
 li {
   list-style: none;
 }
@@ -235,9 +229,6 @@ ul {
   .product {
     width: 100%;
     margin: 8% 0 8% 0;
-  }
-  .imgTitle {
-    max-width: 80%;
   }
 }
 </style>

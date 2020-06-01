@@ -1,26 +1,26 @@
 <template>
-  <div class="pt-5">
+  <div>
     <div class="imgTitle">
       <img :src="titleImgUrl" alt />
     </div>
     <ul class="text-center border-secondary categoryMargin py-3">
-      <router-link @click.native="changeImg('all')" class="p-3" to="/products/all">
+      <router-link @click.native="changeImg('all')" class="p-3 link" to="/products/all">
         <span>全部家具</span>
       </router-link>
-      <router-link @click.native="changeImg('sofa')" class="p-3" to="/products/sofa">
+      <router-link @click.native="changeImg('sofa')" class="p-3 link" to="/products/sofa">
         <span>沙發</span>
       </router-link>
       <router-link
         @click.native="changeImg('diningtable')"
-        class="p-3"
+        class="p-3 link"
         to="/products/diningtable"
       >
         <span>餐桌</span>
       </router-link>
-      <router-link @click.native="changeImg('bed')" class="p-3" to="/products/bed">
+      <router-link @click.native="changeImg('bed')" class="p-3 link" to="/products/bed">
         <span>床組</span>
       </router-link>
-      <router-link @click.native="changeImg('wardrobe')" class="p-3" to="/products/wardrobe">
+      <router-link @click.native="changeImg('wardrobe')" class="p-3 link" to="/products/wardrobe">
         <span>衣櫃</span>
       </router-link>
     </ul>
@@ -64,23 +64,19 @@ export default {
     this.changeImg('all');
   },
 };
+
+
 </script>
 <style lang="scss" scoped>
 .imgTitle {
-  margin-top: 100px;
   width: 100%;
   img {
     width: 100%;
-    height: 400px;
+    height: auto;
   }
 }
-ul {
-  padding: 0;
-  border-top: solid 1px #e5e5e5;
-  border-bottom: solid 1px #e5e5e5;
-}
 
-a {
+.link {
   text-decoration: none;
   span {
     position: relative;
@@ -88,7 +84,7 @@ a {
   }
 }
 
-a span::after {
+.link span::after {
   position: absolute;
   content: " ";
   display: block;
@@ -99,16 +95,19 @@ a span::after {
   left: 50%;
   transition: all 0.3s ease;
 }
-a span:hover:after {
+.link span:hover:after {
   width: 100%;
   left: 0%;
 }
-a.active span::after {
+.link.active span::after {
   width: 100%;
   left: 0%;
 }
 
 .categoryMargin {
+  padding: 0;
+  border-top: solid 1px #e5e5e5;
+  border-bottom: solid 1px #e5e5e5;
   margin: 0 auto;
   margin-top: 48px;
   margin-bottom: 48px;

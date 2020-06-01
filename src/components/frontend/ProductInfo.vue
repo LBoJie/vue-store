@@ -6,7 +6,7 @@
       <div class="prodImg mr-md-5">
         <img :src="product.imageUrl" alt />
       </div>
-      <div class="prodIntro ml-md-5">
+      <div class="prodIntro">
         <h1 class="border-bottom border-secondary pb-3 title">{{ product.title }}</h1>
         <del class="h5">原價:{{ product.origin_price }}</del>
         <span class="h5 ml-5">特價:{{ product.price }}</span>
@@ -20,9 +20,12 @@
             <option :value="qty" v-for="qty in 10" :key="qty">{{ qty }}{{ product.unit }}</option>
           </select>
         </div>
-        <button class="btn btn-danger cart" @click="addtoCart(product.id,product.qty)"
-        :disabled="isDisable">
-          <i class="fas fa-spinner fa-spin mr-1" v-if="product.id==loadingItem"></i>CART
+        <button
+          class="btn btn-danger cart"
+          @click="addtoCart(product.id,product.qty)"
+          :disabled="isDisable"
+        >
+          <i class="fas fa-spinner fa-spin mr-1" v-if="product.id==loadingItem"></i>加入購物車
         </button>
         <button class="btn btn-primary cart mr-2" @click="goIndex">返回列表</button>
       </div>
@@ -92,6 +95,8 @@ export default {
     this.getProduct(this.$route.params.ProductId);
   },
 };
+
+
 </script>
 <style lang="scss" scope>
 .qty-set {
@@ -103,15 +108,17 @@ export default {
 }
 
 .prodContent {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-
   .prodImg {
-    width: 30%;
+    width: 25%;
     img {
       width: 100%;
       height: auto;
     }
+  }
+  .prodIntro {
+    width: 30%;
   }
   .title {
     font-weight: 700;
@@ -161,6 +168,7 @@ export default {
     display: block;
     margin: 0 auto;
     .prodIntro {
+      width: 100%;
       margin-top: 20px;
     }
     .prodImg {

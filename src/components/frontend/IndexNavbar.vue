@@ -1,43 +1,49 @@
 <template>
   <div class="header">
-    <h1 class="indexlogo">
-      <router-link to="/">
-        <img src="../../assets/image/IndexLogo.svg" alt />
-      </router-link>
+    <h1 class="indexlogo bg-primary h-100">
+      <router-link
+        to="/"
+        class="text-white h-100 d-block d-flex align-items-center justify-content-center logo"
+      >Liao's Factory</router-link>
     </h1>
     <div class="headerInfo d-flex flex-row-reverse align-items-center">
-        <button href="#" class="showmenu btn btn-outline-danger" @click="showMenu">
-      <i class="fas fa-sliders-h"></i>
-    </button>
-    <button class="btn btn-cart cart" type="button" @click="showCart" v-if="cart.carts">
-      <i class="fas fa-shopping-cart text-dark fa-2x mt-1"></i>
-      <span class="badge badge-pill badge-danger">{{ mergeCart.length }}</span>
-    </button>
-    <ul class="menu m-0 align-items-center">
-      <li>
-        <router-link class="nav-link font-weight-bold" to="/products/all">商品列表</router-link>
-      </li>
-      <li>
-        <router-link class="nav-link font-weight-bold" to="/coupons">優惠卷</router-link>
-      </li>
-      <li>
-        <router-link class="nav-link" to="/login">
-          <i class="fas fa-cog mr-1"></i>
-        </router-link>
-      </li>
-    </ul>
-<div class="clearfix"></div>
+      <button href="#" class="showmenu btn btn-outline-danger" @click="showMenu">
+        <i class="fas fa-sliders-h"></i>
+      </button>
+      <button class="btn btn-cart cart" type="button" @click="showCart" v-if="cart.carts">
+        <i class="fas fa-shopping-cart text-dark fa-2x mt-1"></i>
+        <span
+          class="badge badge-pill badge-danger"
+          v-if="cart.final_total!=0"
+        >{{ mergeCart.length }}</span>
+      </button>
+      <ul class="menu m-0 align-items-center">
+        <li>
+          <router-link class="nav-link font-weight-bold link" to="/products/all">商品列表</router-link>
+        </li>
+        <li>
+          <router-link class="nav-link font-weight-bold link" to="/coupons">優惠卷</router-link>
+        </li>
+        <li>
+          <router-link class="nav-link link" to="/login">
+            <i class="fas fa-cog mr-1"></i>
+          </router-link>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
     </div>
     <div class="dropdown">
       <div class="dropdown-menu" id="cart">
         <div class="px-4 py-3">
+          <button type="button" class="close" @click="hideCart">
+            <span>&times;</span>
+          </button>
           <h6 class="text-center">
             <span v-if="cart.final_total!=0">已選擇商品</span>
-              <router-link class="btn btn-danger btn-md mt-3" to="/products/all" v-else>
-              趕緊去逛逛</router-link>
-            <button type="button" class="close" @click="hideCart">
-              <span>&times;</span>
-            </button>
+            <span v-else class="text-center">
+              <p class="pt-2">購物車內還沒有商品</p>
+              <router-link class="btn btn-danger btn-md mt-3" to="/products/all">趕緊去逛逛</router-link>
+            </span>
           </h6>
 
           <table class="table table-sm">
@@ -66,7 +72,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 <script>
@@ -98,19 +103,20 @@ export default {
         vm.cart = response.data.data;
         vm.mergeCart = [];
         vm.cart.carts.forEach(function mergeRepeat(mergeProduct) {
-          if (!this[mergeProduct.product.title]) {
-            this[mergeProduct.product.title] = {
+          const mergeVm = this;
+          if (!mergeVm[mergeProduct.product.title]) {
+            mergeVm[mergeProduct.product.title] = {
               title: mergeProduct.product.title,
               qty: 0,
               price: 0,
               allId: [],
               unit: mergeProduct.product.unit,
             };
-            vm.mergeCart.push(this[mergeProduct.product.title]);
+            vm.mergeCart.push(mergeVm[mergeProduct.product.title]);
           }
-          this[mergeProduct.product.title].qty += mergeProduct.qty;
-          this[mergeProduct.product.title].price += mergeProduct.total;
-          this[mergeProduct.product.title].allId.push(mergeProduct.id);
+          mergeVm[mergeProduct.product.title].qty += mergeProduct.qty;
+          mergeVm[mergeProduct.product.title].price += mergeProduct.total;
+          mergeVm[mergeProduct.product.title].allId.push(mergeProduct.id);
         }, Object.create(null));
       });
     },
@@ -138,28 +144,35 @@ export default {
     });
   },
 };
+
+
 </script>
 <style lang="scss" scoped>
 .header {
   position: fixed;
-  padding: 0 3em 0 3em;
-  top: 55px;
+  padding: 0 3em 0 0;
+  top: 48px;
   width: 100%;
+  z-index: 99;
   transition: all 0.4s;
   opacity: 1;
   background: rgba(0%, 0%, 0%, 0);
-  z-index: 9999;
-  height: 89px;
+  height: 83px;
   .nav-link:hover {
     transition: all 0.3s;
     transform: scale(1.2);
   }
-   .headerInfo{
-      height: 100%;
-    }
+  .headerInfo {
+    height: 100%;
+  }
 }
 .indexlogo {
   float: left;
+  width: 200px;
+  .logo {
+    text-decoration: none;
+    font-size: 24px;
+  }
 }
 li {
   list-style: none;
@@ -167,7 +180,7 @@ li {
 ul {
   padding: 0;
 }
-ul li a {
+.link {
   font-size: 24px;
 }
 h1 img {
@@ -185,7 +198,7 @@ h1 img {
   position: relative;
 }
 .showmenu {
-   display: none;
+  display: none;
 }
 
 .menu li {

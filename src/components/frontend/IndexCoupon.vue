@@ -6,22 +6,22 @@
       <h3 class="text-info">優惠第一重! 買越多 省越多</h3>
       <div class="coupons mt-md-5 d-flex flex-wrap">
         <div class="coupon">
-          <div class="coupon-left text-center">10% off</div>
-          <div class="coupon-right text-center">
+          <div class="coupon-left text-center bg-danger">10% off</div>
+          <div class="coupon-right text-center bg-warning">
             <P>單筆滿1000</P>
             <p>結帳輸入:10PercentOff</p>
           </div>
         </div>
         <div class="coupon">
-          <div class="coupon-left text-center">20% off</div>
-          <div class="coupon-right text-center">
+          <div class="coupon-left text-center bg-danger">20% off</div>
+          <div class="coupon-right text-center bg-warning">
             <P>單筆滿2000</P>
             <p>結帳輸入:20PercentOff</p>
           </div>
         </div>
         <div class="coupon">
-          <div class="coupon-left text-center">30% off</div>
-          <div class="coupon-right text-center">
+          <div class="coupon-left text-center bg-danger">30% off</div>
+          <div class="coupon-right text-center bg-warning">
             <P>單筆滿2500</P>
             <p>結帳輸入:30PercentOff</p>
           </div>
@@ -100,6 +100,8 @@ export default {
     },
   },
 };
+
+
 </script>
 <style lang="scss" scoped>
 .anniversary {
@@ -145,12 +147,6 @@ export default {
 .coupon-left {
   width: 80px;
   height: 120px;
-  background-image: linear-gradient(
-    315deg,
-    #ff8325 0%,
-    #ffc156 60%,
-    #ffe06d 100%
-  );
   position: relative;
   line-height: 120px;
 }
@@ -173,7 +169,6 @@ export default {
   );
 }
 .coupon-right {
-  background-color: #fff3ed;
   flex: 1;
   height: 120px;
   line-height: 40px;

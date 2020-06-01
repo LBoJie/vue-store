@@ -2,11 +2,15 @@
   <div class="orderDone">
     <div class="orderDoneInfo">
       <div class="transport d-flex">
-        <div class="position"> <i class="fas fa-warehouse icon-size"></i></div>
+        <div class="position">
+          <i class="fas fa-warehouse icon-size"></i>
+        </div>
         <div class="ground">
           <i class="fas fa-truck-moving icon-size"></i>
         </div>
-        <div class="position"><i class="fas fa-home icon-size"></i></div>
+        <div class="position">
+          <i class="fas fa-home icon-size"></i>
+        </div>
       </div>
       <div class="text-center mt-5 order-bg">
         <h2 class="mt-4 h1">
@@ -28,6 +32,8 @@ export default {
     $('.fa-truck-moving').animate({ left: '80%' }, 3000);
   },
 };
+
+
 </script>
 <style lang="scss" scoped>
 .orderDone {
@@ -43,18 +49,18 @@ export default {
       border-bottom: solid 10px black;
       padding-left: 2%;
       padding-right: 2%;
-      .icon-size{
+      .icon-size {
         font-size: 5em;
       }
-      .position{
+      .position {
         position: relative;
         width: 10%;
       }
-      .fa-warehouse{
+      .fa-warehouse {
         position: absolute;
         bottom: 5px;
       }
-      .fa-home{
+      .fa-home {
         position: absolute;
         bottom: 0;
       }
@@ -71,20 +77,20 @@ export default {
     }
   }
 }
-@media(max-width: 768px){
-    .icon-size{
-      font-size: 2.8em!important;
+@media (max-width: 768px) {
+  .icon-size {
+    font-size: 2.8em !important;
   }
 }
-@media(max-width: 375px){
-  .transport{
-    width: 100%!important;
-    .icon-size{
-      font-size: 2.5em!important;
-  }
-     .fa-home{
-        right: -5px;
-      }
+@media (max-width: 375px) {
+  .transport {
+    width: 100% !important;
+    .icon-size {
+      font-size: 2.5em !important;
+    }
+    .fa-home {
+      right: -5px;
+    }
   }
 }
 </style>
