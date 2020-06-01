@@ -95,8 +95,6 @@ export default {
     this.getProduct(this.$route.params.ProductId);
   },
 };
-
-
 </script>
 <style lang="scss" scope>
 .qty-set {
@@ -130,22 +128,22 @@ export default {
   .mabylike-title {
     position: relative;
   }
-  .mabylike-title::before {
-    content: " ";
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 40%;
-    border: solid 1px #000;
-  }
-  .mabylike-title::after {
-    content: " ";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 40%;
-    border: solid 1px #000;
-  }
+}
+.mabylike-title::before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 40%;
+  border: solid 1px #000;
+}
+.mabylike-title::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 40%;
+  border: solid 1px #000;
 }
 @media (max-width: 768px) {
   .mebylike {
@@ -153,10 +151,10 @@ export default {
   }
   .mabylike-title::after {
     content: " ";
-    width: 35% !important;
+    width: 35%;
   }
   .mabylike-title::before {
-    width: 35% !important;
+    width: 35%;
   }
 }
 @media (max-width: 375px) {
@@ -181,10 +179,10 @@ export default {
   }
   .mabylike-title::after {
     content: " ";
-    width: 20% !important;
+    width: 20%;
   }
   .mabylike-title::before {
-    width: 20% !important;
+    width: 20%;
   }
 }
 </style>

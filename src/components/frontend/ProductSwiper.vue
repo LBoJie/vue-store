@@ -164,7 +164,7 @@ li {
 }
 @media (max-width: 768px) {
   .price {
-    opacity: 1 !important;
+    opacity: 1;
   }
 }
 @media (max-width: 375px) {

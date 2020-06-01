@@ -112,7 +112,7 @@
           frameborder="0"
         ></iframe>
       </div>
-      <div class="card" style="width: 48%;">
+      <div class="card">
         <img src="../../assets/image/store.jpg" class="card-img-top" alt />
         <div class="card-body">
           <h5 class="card-title text-center">Liao's Factory</h5>
@@ -225,10 +225,6 @@ export default {
 .categoryAll:hover {
   -webkit-filter: opacity(30%); /* Safari */
   filter: opacity(70%);
-}
-
-.mt-5 {
-  margin-top: 100px !important;
 }
 .sec-title::after {
   content: " ";
@@ -351,11 +347,14 @@ export default {
       width: 100%;
     }
   }
+  .card {
+    width: 48%;
+  }
 }
 
 @media (max-width: 768px) {
   .aboutus-content {
-    width: 100% !important;
+    width: 100% ;
   }
   .select-tree {
     img {
@@ -379,28 +378,28 @@ export default {
   }
   .test {
     img {
-      float: none !important;
-      width: 100% !important;
+      float: none ;
+      width: 100% ;
     }
     .test-content {
-      float: none !important;
-      width: 100% !important;
+      float: none ;
+      width: 100% ;
     }
   }
   .maker {
     img {
-      float: none !important;
-      width: 100% !important;
+      float: none ;
+      width: 100% ;
     }
     .maker-content {
-      float: none !important;
-      width: 100% !important;
+      float: none ;
+      width: 100% ;
     }
   }
 }
 @media (max-width: 375px) {
   .categoryProducts {
-    width: 100% !important;
+    width: 100% ;
   }
   .aboutus {
     .aboutus-content {
@@ -410,7 +409,7 @@ export default {
         width: 100%;
       }
       .aboutus-text {
-        width: 100% !important;
+        width: 100% ;
       }
     }
   }
@@ -423,20 +422,21 @@ export default {
     float: none;
   }
   .maker {
-    width: 100% !important;
+    width: 100% ;
     float: none;
   }
 
   .test {
-    width: 100% !important;
+    width: 100% ;
     float: none;
   }
   .store {
     .map {
-      width: 100% !important;
+      width: 100% ;
+      margin-bottom: 20px;
     }
     .card {
-      width: 100% !important;
+      width: 100% ;
     }
   }
 }

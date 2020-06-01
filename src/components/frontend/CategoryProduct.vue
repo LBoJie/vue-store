@@ -163,7 +163,7 @@ ul {
 .mobile {
   position: absolute;
   bottom: -50px;
-  display: none !important;
+  display: none;
   h3 {
     float: left;
   }
@@ -214,7 +214,7 @@ ul {
     width: 48%;
     margin: 0% 1% 16% 1%;
     .mobile {
-      display: block !important;
+      display: block;
     }
   }
 

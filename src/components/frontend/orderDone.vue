@@ -32,8 +32,6 @@ export default {
     $('.fa-truck-moving').animate({ left: '80%' }, 3000);
   },
 };
-
-
 </script>
 <style lang="scss" scoped>
 .orderDone {
@@ -43,50 +41,50 @@ export default {
     .order-bg {
       height: 50%;
     }
-    .transport {
-      margin: 0 auto;
-      width: 50%;
-      border-bottom: solid 10px black;
-      padding-left: 2%;
-      padding-right: 2%;
-      .icon-size {
-        font-size: 5em;
-      }
-      .position {
-        position: relative;
-        width: 10%;
-      }
-      .fa-warehouse {
-        position: absolute;
-        bottom: 5px;
-      }
-      .fa-home {
-        position: absolute;
-        bottom: 0;
-      }
-      .ground {
-        position: relative;
-        height: 100px;
-        width: 80%;
-        .fa-truck-moving {
-          position: absolute;
-          left: 10%;
-          bottom: 0;
-        }
-      }
+  }
+}
+.transport {
+  margin: 0 auto;
+  width: 50%;
+  border-bottom: solid 10px black;
+  padding-left: 2%;
+  padding-right: 2%;
+  .position {
+    position: relative;
+    width: 10%;
+  }
+  .fa-warehouse {
+    position: absolute;
+    bottom: 5px;
+  }
+  .fa-home {
+    position: absolute;
+    bottom: 0;
+  }
+  .ground {
+    position: relative;
+    height: 100px;
+    width: 80%;
+    .fa-truck-moving {
+      position: absolute;
+      left: 10%;
+      bottom: 0;
     }
   }
 }
+.icon-size {
+  font-size: 5em;
+}
 @media (max-width: 768px) {
   .icon-size {
-    font-size: 2.8em !important;
+    font-size: 2.8em;
   }
 }
 @media (max-width: 375px) {
   .transport {
-    width: 100% !important;
+    width: 100%;
     .icon-size {
-      font-size: 2.5em !important;
+      font-size: 2.5em;
     }
     .fa-home {
       right: -5px;
