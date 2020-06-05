@@ -1,11 +1,12 @@
 <template>
   <div>
     <loading :active.sync="isLoading"></loading>
-    <div class="container">
-      <h1 class="my-5">
-        <router-link to="/">
-          <img class="indexlogo" src="../../assets/image/IndexLogo.svg" alt />
-        </router-link>
+    <div class="container-w50">
+      <h1 class="indexlogo bg-primary">
+        <router-link
+          to="/"
+          class="text-white h-100 d-block d-flex align-items-center justify-content-center logo"
+        >Liao's Factory</router-link>
       </h1>
       <table class="table">
         <thead>
@@ -311,19 +312,32 @@ export default {
     this.getCart();
   },
 };
-
 </script>
 <style lang="scss" scoped>
 li {
   list-style-type: none;
 }
-
+.indexlogo {
+  width: 200px;
+  font-size: 24px;
+  height: 83px;
+  .logo {
+    text-decoration: none;
+  }
+}
+.container-w50 {
+  max-width: 50%;
+  margin: 0 auto;
+}
 .coupon-size {
   width: 500px;
   margin: 0 auto;
 }
 
 @media (max-width: 375px) {
+  .container-w50 {
+    max-width: 95%;
+  }
   .coupon-size {
     width: 100%;
   }

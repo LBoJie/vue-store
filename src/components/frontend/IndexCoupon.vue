@@ -1,5 +1,5 @@
 <template>
-  <div class="anniversary">
+  <div class="container anniversary">
     <ReservationAlert />
     <h2 class="text-center h1 p-2 anniversary-title text-danger">歡樂周年慶</h2>
     <div class="first mt-5">
@@ -7,21 +7,27 @@
       <div class="coupons mt-md-5 d-flex flex-wrap">
         <div class="coupon">
           <div class="coupon-left text-center bg-danger">10% off</div>
-          <div class="coupon-right text-center bg-warning">
+          <div
+            class="d-flex flex-column justify-content-center coupon-right / text-center bg-warning"
+          >
             <P>單筆滿1000</P>
             <p>結帳輸入:10PercentOff</p>
           </div>
         </div>
         <div class="coupon">
           <div class="coupon-left text-center bg-danger">20% off</div>
-          <div class="coupon-right text-center bg-warning">
+          <div
+            class="d-flex flex-column justify-content-center / coupon-right text-center bg-warning"
+          >
             <P>單筆滿2000</P>
             <p>結帳輸入:20PercentOff</p>
           </div>
         </div>
         <div class="coupon">
           <div class="coupon-left text-center bg-danger">30% off</div>
-          <div class="coupon-right text-center bg-warning">
+          <div
+            class="d-flex flex-column justify-content-center coupon-right / text-center bg-warning"
+          >
             <P>單筆滿2500</P>
             <p>結帳輸入:30PercentOff</p>
           </div>
@@ -100,8 +106,6 @@ export default {
     },
   },
 };
-
-
 </script>
 <style lang="scss" scoped>
 .anniversary {

@@ -7,7 +7,7 @@
           <span>Liao's Factory</span>
         </h2>
         <div class="aboutus d-flex justify-content-center align-items-center mb-4">
-          <div class="aboutus-content px-5">
+          <div class="aboutus-content">
             <h3
               class="aboutus-title font-weight-bold text-center my-4"
             >廖氏木頭工房 &nbsp;&nbsp;&nbsp;一甲子的堅持</h3>
@@ -24,40 +24,39 @@
         </div>
         <div class="category d-flex flex-wrap justify-content-between">
           <router-link class="categoryAll" to="/products/all">
-            <img src="../../assets/image/allproducttitle.jpg" alt />
+            <img src="../../assets/image/allproducttitle1.jpg" alt />
             <h5 class="p-3 categoryTitle text-center">熱門產品&nbsp;&nbsp; HOT PRODUCTS</h5>
           </router-link>
           <router-link class="categoryProducts" to="/products/sofa">
-            <img src="../../assets/image/sofatitle.jpg" alt />
+            <img src="../../assets/image/sofa.jpg" alt />
             <h5 class="p-3 categoryTitle text-center">客廳家具&nbsp;&nbsp; LIVING ROOM</h5>
           </router-link>
           <router-link class="categoryProducts" to="/products/diningtable">
-            <img src="../../assets/image/desktitle.jpg" alt />
+            <img src="../../assets/image/desk.jpg" alt />
             <h5 class="p-3 categoryTitle text-center">餐廳家具&nbsp; &nbsp;DINING ROOM</h5>
           </router-link>
           <router-link class="categoryProducts" to="/products/bed">
-            <img src="../../assets/image/bedtitle.jpg" alt />
+            <img src="../../assets/image/bed.jpg" alt />
             <h5 class="p-3 categoryTitle text-center">臥室家具&nbsp;&nbsp; BEDROOM</h5>
           </router-link>
           <router-link class="categoryProducts" to="/products/wardrobe">
-            <img src="../../assets/image/wardrobetitle.jpg" alt />
+            <img src="../../assets/image/wardrobet.jpg" alt />
             <h5 class="p-3 categoryTitle text-center">收納家具&nbsp;&nbsp; STORAGE ROOM</h5>
           </router-link>
         </div>
       </div>
     </div>
-    <div class="principle mt-4" style="background:#f5f5f3;">
+    <div class="mt-4" style="background:#f5f5f3;">
       <h2 class="py-5 showAlbum text-center font-weight-bold">[ 廖氏理念 ]</h2>
       <div class="guidelines container">
         <div class="select-tree mb-5 p-2">
           <img src="../../assets/image/album1.jpg" class="slidetree" />
-          <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+          <div class="d-flex justify-content-center align-items-center principle-h">
             <div class="select-tree-content">
               <h3 class="text-center tree-title py-2 font-weight-bold">獨家選材</h3>
               <p class="tree-text">
-                廖氏木頭工房採用經ＦＳＣ認證之再生林木材，如北美橡木、梣木、楊木、胡桃木及紐西蘭松木等。
-                FSC(Forest Stewardship Council) 是一個國際間森林管理委員會所認證的森林永續發展機制。
-                FSC商品的認證訴求在於有計畫的砍伐與回饋種植樹木，讓地球上的森林可以永續長存。
+                廖氏木頭工房採用經ＦＳＣ認證之再生林木材，如北美橡木、梣木及紐西蘭松木等。
+                ＦＳＣ商品的認證訴求在於有計畫的砍伐與回饋種植樹木，讓地球上的森林可以永續長存。
               </p>
             </div>
           </div>
@@ -66,7 +65,7 @@
         </div>
         <div class="pro-design mb-5 p-2">
           <img src="../../assets/image/album2.jpg" class="slidepro" />
-          <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+          <div class="d-flex justify-content-center align-items-center principle-h">
             <div class="pro-design-content">
               <h3 class="text-center design-title py-2 font-weight-bold">專業設計</h3>
               <p
@@ -77,12 +76,11 @@
         </div>
         <div class="maker mb-5 p-2">
           <img src="../../assets/image/album3.jpg" class="slidemaker" />
-          <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+          <div class="d-flex justify-content-center align-items-center principle-h">
             <div class="maker-content">
               <h3 class="text-center maker-title py-2 font-weight-bold">職人打造</h3>
               <p class="maker-text">
-                我們的團隊裡有許多台灣一流的木工師傅，他們擁有的經驗與技術都是十分珍貴的資產，需要被保存與重視。
-                因應台灣生活形態的改變，挑選最適合製作的木種、材料表面的塗裝、色彩與保護方式、
+                我們的團隊裡有許多台灣一流的木工師傅，他們擁有的經驗與技術都是十分珍貴的資產，
                 廖氏木頭工房將這些技法的運用保留在家具的設計與製作裡頭，希望能延續傳承這樣的精神！
               </p>
             </div>
@@ -90,10 +88,10 @@
         </div>
         <div class="test mb-5 p-2">
           <img src="../../assets/image/album4.jpg" class="slidetest" />
-          <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+          <div class="d-flex justify-content-center align-items-center principle-h">
             <div class="test-content">
               <h3 class="text-center test-title py-2 font-weight-bold">耐久測試</h3>
-              <p class="test-text">我們所出品的家具，皆經過長時間的試用、嚴苛環境的測試，因應台灣生活得氣候，做出能夠傳承的家具。</p>
+              <p class="test-text">我們所出品的家具，皆經過長時間的試用、嚴苛環境的測試，因應台灣生活得氣候，做出能夠傳承的家具，讓家具們陪伴您的下一段人生。</p>
             </div>
           </div>
         </div>
@@ -187,8 +185,6 @@ export default {
     });
   },
 };
-
-
 </script>
 <style lang="scss" scoped>
 .sec-title {
@@ -218,7 +214,7 @@ export default {
   }
   img {
     width: 100%;
-    height: 300px;
+    height: auto;
   }
 }
 .categoryProducts:hover,
@@ -243,15 +239,19 @@ export default {
 .jump {
   position: relative;
 }
+.principle-h {
+  height: 300px;
+}
 .aboutus {
   margin: 0 auto;
   position: relative;
   width: 100%;
-  height: 600px;
+  padding: 100px 0px 100px 0px;
   background: url(../../assets/image/aboutus.jpg) center center;
   background-attachment: fixed;
   .aboutus-content {
     color: #fff;
+    padding: 3em;
     width: 50%;
     background-color: rgba(0, 0, 0, 0.3);
     .aboutus-title {
@@ -353,8 +353,12 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .aboutus {
+    padding: 0px 0px 0px 0px;
+  }
   .aboutus-content {
-    width: 100% ;
+    width: 100%;
+    height: 100%;
   }
   .select-tree {
     img {
@@ -378,28 +382,38 @@ export default {
   }
   .test {
     img {
-      float: none ;
-      width: 100% ;
+      float: none;
+      width: 100%;
     }
     .test-content {
-      float: none ;
-      width: 100% ;
+      float: none;
+      width: 100%;
     }
   }
   .maker {
     img {
-      float: none ;
-      width: 100% ;
+      float: none;
+      width: 100%;
     }
     .maker-content {
-      float: none ;
-      width: 100% ;
+      float: none;
+      width: 100%;
     }
   }
 }
 @media (max-width: 375px) {
-  .categoryProducts {
-    width: 100% ;
+  .category {
+    .categoryAll {
+      img {
+        height: 230px;
+      }
+    }
+    .categoryProducts {
+      width: 100%;
+    }
+  }
+  .principle-h {
+    height: 200px;
   }
   .aboutus {
     .aboutus-content {
@@ -409,7 +423,7 @@ export default {
         width: 100%;
       }
       .aboutus-text {
-        width: 100% ;
+        width: 100%;
       }
     }
   }
@@ -422,21 +436,21 @@ export default {
     float: none;
   }
   .maker {
-    width: 100% ;
+    width: 100%;
     float: none;
   }
 
   .test {
-    width: 100% ;
+    width: 100%;
     float: none;
   }
   .store {
     .map {
-      width: 100% ;
+      width: 100%;
       margin-bottom: 20px;
     }
     .card {
-      width: 100% ;
+      width: 100%;
     }
   }
 }

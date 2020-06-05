@@ -9,7 +9,6 @@ export default new Router({
       path: '*',
       redirect: '/',
     },
-
     {
       path: '/',
       name: 'Index',

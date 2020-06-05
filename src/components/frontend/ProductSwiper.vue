@@ -17,7 +17,7 @@
               </div>
             </div>
 
-            <h6 class="text-center pt-2">{{ item.title }}</h6>
+            <h6 class="text-center">{{ item.title }}</h6>
           </div>
         </div>
       </swiper-slide>
@@ -37,7 +37,7 @@
               </div>
             </div>
 
-            <h6 class="text-center pt-2">{{ item.title }}</h6>
+            <h6 class="text-center">{{ item.title }}</h6>
           </div>
         </div>
       </swiper-slide>
@@ -108,8 +108,6 @@ export default {
     this.getProducts();
   },
 };
-
-
 </script>
 <style lang="scss" scoped>
 li {
@@ -123,6 +121,7 @@ li {
 .product {
   width: 23%;
   margin: 2% 1% 5% 1%;
+  height: 150px;
 }
 
 .swiperImg {
@@ -138,7 +137,7 @@ li {
 .goproduct {
   position: absolute;
   top: 42%;
-  right: 38%;
+  right: 29%;
 }
 .showmore {
   position: absolute;
@@ -166,11 +165,10 @@ li {
   .price {
     opacity: 1;
   }
+  .goproduct {
+    display: none;
+  }
 }
 @media (max-width: 375px) {
-  .product {
-    width: 100%;
-    margin: 0;
-  }
 }
 </style>

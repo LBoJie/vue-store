@@ -7,17 +7,17 @@
       >Liao's Factory</router-link>
     </h1>
     <div class="headerInfo d-flex flex-row-reverse align-items-center">
-      <button href="#" class="showmenu btn btn-outline-danger" @click="showMenu">
-        <i class="fas fa-sliders-h"></i>
+      <button href="#" class="showmenu btn btn-outline-danger align-items-center" @click="showMenu">
+        <i class="fas fa-bars"></i>
       </button>
       <button class="btn btn-cart cart" type="button" @click="showCart" v-if="cart.carts">
-        <i class="fas fa-shopping-cart text-dark fa-2x mt-1"></i>
+        <i class="fas fa-shopping-cart text-dark fa-2x"></i>
         <span
           class="badge badge-pill badge-danger"
           v-if="cart.final_total!=0"
         >{{ mergeCart.length }}</span>
       </button>
-      <ul class="menu m-0 align-items-center">
+      <ul class="menu m-0 align-items-center" @click="closeMenu">
         <li>
           <router-link class="nav-link font-weight-bold link" to="/products/all">商品列表</router-link>
         </li>
@@ -96,6 +96,9 @@ export default {
     hideCart() {
       $('#cart').toggleClass('show');
     },
+    closeMenu() {
+      $('body').removeClass('menu-show');
+    },
     getCart() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
@@ -144,8 +147,6 @@ export default {
     });
   },
 };
-
-
 </script>
 <style lang="scss" scoped>
 .header {
@@ -216,7 +217,7 @@ h1 img {
 @media (max-width: 375px) {
   .header {
     padding: 0;
-    background-color: rgba($color: #f1faee, $alpha: 0.9);
+    background-color: #ffffff;
     .nav-link:hover {
       transform: scale(1);
     }
@@ -224,8 +225,6 @@ h1 img {
   .showmenu {
     display: block;
     float: right;
-    margin-top: 20px;
-    margin-right: 5px;
   }
   .menu {
     max-height: 0px;
@@ -234,10 +233,10 @@ h1 img {
     margin-top: 1px;
     position: absolute;
     z-index: 100;
-    top: 88px;
+    top: 83px;
     left: 0;
     right: 0;
-    background-color: rgba($color: #f1faee, $alpha: 0.9);
+    background-color: #ffffff;
     padding: 0;
   }
   .menu li {
@@ -245,10 +244,6 @@ h1 img {
   }
   .menu-show .menu {
     max-height: 500px;
-  }
-  .btn-cart {
-    margin-top: 20px;
-    margin-right: 10px;
   }
   .dropdown {
     top: 90px;

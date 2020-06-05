@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-fluid">
     <cartAlert />
     <loading :active.sync="isLoading"></loading>
     <ul class="d-flex flex-wrap">
@@ -25,11 +25,11 @@
             </span>
           </div>
         </div>
-        <div class="mobile px-3 pt-2">
+        <div class="mobile">
           <h3>{{ item.title }}</h3>
-          <div class="mobile-margin">
-            <h3>{{ item.price }}</h3>
-            <button class="btn btn-danger btn-md ml-3 p-2" @click.stop="addtoCart(item.id)">
+          <div class="mobil-price">
+            <h3>{{ item.price | currency }}</h3>
+            <button class="btn btn-danger btn-md ml-2" @click.stop="addtoCart(item.id)">
               <i class="fas fa-shopping-cart"></i>
             </button>
           </div>
@@ -85,7 +85,7 @@ export default {
     },
     addtoCart(id, qty = 1) {
       const vm = this;
-      this.isDisable = true;
+      vm.isDisable = true;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
       vm.loadingItem = id;
       const cart = {
@@ -94,9 +94,9 @@ export default {
       };
       vm.$http.post(api, { data: cart }).then(() => {
         vm.loadingItem = '';
-        this.$bus.$emit('refreshCart');
-        this.$bus.$emit('alertCart');
-        this.isDisable = false;
+        vm.$bus.$emit('refreshCart');
+        vm.$bus.$emit('alertCart');
+        vm.isDisable = false;
       });
     },
   },
@@ -150,8 +150,6 @@ export default {
     this.$emit('changeImg', this.$route.params.Category);
   },
 };
-
-
 </script>
 <style lang="scss" scoped>
 li {
@@ -162,22 +160,16 @@ ul {
 }
 .mobile {
   position: absolute;
-  bottom: -50px;
+  width: 100%;
+  height: 50px;
   display: none;
-  h3 {
-    float: left;
-  }
-  .mobile-margin {
-    float: right;
-    margin-left: 90px;
-  }
 }
 .product {
   transition: all 0.5s;
   position: relative;
   width: 30%;
   margin: 1.5%;
-  height: 350px;
+  height: auto;
   img {
     width: 100%;
     height: 100%;
@@ -214,7 +206,9 @@ ul {
     width: 48%;
     margin: 0% 1% 16% 1%;
     .mobile {
-      display: block;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 
@@ -228,7 +222,19 @@ ul {
 @media (max-width: 375px) {
   .product {
     width: 100%;
-    margin: 8% 0 8% 0;
+    margin: 7% 0 8% 0;
+  }
+  .product {
+    .mobile {
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0px;
+      }
+      .mobil-price {
+        display: flex;
+        align-items: center;
+      }
+    }
   }
 }
 </style>

@@ -2,54 +2,49 @@
   <div class="swiperWidth">
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
-      <swiper-slide>
-        <div class="swiper-absolute">
-          <div class="swiper-relative text-center">
-            <h2 class="swiper-title bg-primary p-2">所有系列</h2>
-            <router-link class="swiper-link bg-light text-center" to="/products/all">
-            立即選購</router-link>
-          </div>
+      <swiper-slide class="swiper-relative">
+        <div class="swiper-title">
+          <h2>所有系列</h2>
+          <h3>━━ 總有一款屬於你的家具</h3>
         </div>
+        <router-link class="btn btn-light swiper-link text-center" to="/products/all">
+        立即選購</router-link>
         <img class="swiperImg" src="../../assets/image/furniture1.jpg" alt />
       </swiper-slide>
-      <swiper-slide>
-        <div class="swiper-absolute">
-          <div class="swiper-relative text-center">
-            <h2 class="swiper-title bg-danger p-2">悠閒時光</h2>
-            <router-link class="swiper-link bg-light text-center" to="/products/sofa">
-            立即選購</router-link>
-          </div>
+      <swiper-slide class="swiper-relative">
+        <div class="swiper-title">
+          <h2>悠閒時光</h2>
+          <h3>━━ 靜靜品味人生的韻味</h3>
         </div>
+        <router-link class="btn btn-warning swiper-link text-center" to="/products/sofa">
+        立即選購</router-link>
         <img class="swiperImg" src="../../assets/image/furniture2.jpg" alt />
       </swiper-slide>
-      <swiper-slide>
-        <div class="swiper-absolute">
-          <div class="swiper-relative text-center">
-            <h2 class="swiper-title bg-success p-2">愉快用餐</h2>
-            <router-link class="swiper-link bg-light text-center" to="/products/diningtable">
-            立即選購</router-link>
-          </div>
+      <swiper-slide class="swiper-relative">
+        <div class="swiper-title">
+          <h2>愉快用餐</h2>
+          <h3>━━ 為佳餚增添幸福的滋味</h3>
         </div>
+        <router-link class="btn btn-success swiper-link text-center" to="/products/diningtable">
+        立即選購</router-link>
         <img class="swiperImg" src="../../assets/image/furniture3.jpg" alt />
       </swiper-slide>
-      <swiper-slide>
-        <div class="swiper-absolute">
-          <div class="swiper-relative text-center">
-            <h2 class="swiper-title bg-warning p-2">寧靜休憩</h2>
-            <router-link class="swiper-link bg-light text-center" to="/products/bed">
-            立即選購</router-link>
-          </div>
+      <swiper-slide class="swiper-relative">
+        <div class="swiper-title">
+          <h2>寧靜休憩</h2>
+          <h3>━━ 為勞累的身軀充電</h3>
         </div>
+        <router-link class="btn btn-info swiper-link text-center" to="/products/bed">
+        立即選購</router-link>
         <img class="swiperImg" src="../../assets/image/furniture4.jpg" alt />
       </swiper-slide>
-      <swiper-slide>
-        <div class="swiper-absolute">
-          <div class="swiper-relative text-center">
-            <h2 class="swiper-title bg-dark p-2">魔術空間</h2>
-            <router-link class="swiper-link bg-light text-center" to="/products/wardrobe">
-            立即選購</router-link>
-          </div>
+      <swiper-slide class="swiper-relative">
+        <div class="swiper-title">
+          <h2>魔術空間</h2>
+          <h3>━━ 小巧的體積，魔術般的空間</h3>
         </div>
+        <router-link class="btn btn-danger swiper-link text-center" to="/products/wardrobe">
+        立即選購</router-link>
         <img class="swiperImg" src="../../assets/image/furniture5.jpg" alt />
       </swiper-slide>
       <!-- Optional controls -->
@@ -97,52 +92,34 @@ export default {
     swiperSlide,
   },
 };
-
-
 </script>
 <style lang="scss" scoped>
 .swiperWidth {
-  height: 800px;
-  margin: 0 auto;
+  max-width: 100%;
 }
 .swiperImg {
   width: 100%;
-  height: 800px;
+  height: auto;
 }
-.swiper-absolute {
+.swiper-relative {
+  position: relative;
+  height: 100%;
+}
+.swiper-title {
   position: absolute;
-  right: 10%;
-  bottom: 10%;
-  width: 20%;
-  height: 130px;
-  .swiper-relative {
-    position: relative;
-    height: 100%;
-  }
-  .swiper-title {
-    position: absolute;
-    left: 20%;
-    top: 0;
-    font-size: 36px;
-    font-weight: 700;
-    color: white;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-  }
+  left: 10%;
+  top: 10%;
+  font-weight: 700;
+  color: black;
 }
 .swiper-link {
   position: absolute;
-  padding: 5px 15px;
   right: 10%;
-  bottom: 0;
-  text-decoration: none;
+  bottom: 10%;
   font-size: 32px;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 1);
-  transition: all 0.3s;
   overflow: hidden;
   font-weight: 500;
   transition: all 0.3s;
-  border: 1px solid rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
 
@@ -176,6 +153,14 @@ export default {
 @media (max-width: 375px) {
   .swiper-absolute {
     width: 80%;
+  }
+  .swiper-link {
+    font-size: 12px;
+  }
+  .swiper-title {
+    h3 {
+      display: none;
+    }
   }
 }
 </style>

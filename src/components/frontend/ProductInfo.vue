@@ -1,8 +1,8 @@
 <template>
-  <div class="pt-5">
+  <div class="container">
     <cartAlert />
     <loading :active.sync="isLoading"></loading>
-    <div class="prodContent d-flex flex-wrap justify-content-center mt-5 py-5">
+    <div class="prodContent d-flex flex-wrap justify-content-center pb-5">
       <div class="prodImg mr-md-5">
         <img :src="product.imageUrl" alt />
       </div>
@@ -109,7 +109,7 @@ export default {
   width: 100%;
   margin: 0 auto;
   .prodImg {
-    width: 25%;
+    width: 40%;
     img {
       width: 100%;
       height: auto;

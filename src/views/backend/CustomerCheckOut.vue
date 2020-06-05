@@ -1,13 +1,14 @@
 <template>
   <div>
     <loading :active.sync="isLoading"></loading>
-    <div class="my-5 container">
-       <h1 class="my-5">
-        <router-link to="/">
-          <img class="indexlogo" src="../../assets/image/IndexLogo.svg" alt />
-        </router-link>
-      </h1>
-      <form  @submit.prevent="payOrder">
+    <div class="container-w50">
+      <h1 class="indexlogo bg-primary">
+      <router-link
+        to="/"
+        class="text-white h-100 d-block d-flex align-items-center justify-content-center logo"
+      >Liao's Factory</router-link>
+    </h1>
+      <form @submit.prevent="payOrder">
         <table class="table">
           <thead>
             <th>品名</th>
@@ -63,7 +64,7 @@
         </div>
       </form>
     </div>
-    <Footer class="footer" />
+    <Footer />
   </div>
 </template>
 <script>
@@ -110,10 +111,24 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.footer{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.container-w50{
+  max-width: 50%;
+  margin: 0 auto;
+  min-height: 800px;
+}
+
+.indexlogo{
+  width: 200px;
+   font-size: 24px;
+   height: 83px;
+   .logo{
+     text-decoration: none;
+   }
+}
+@media (max-width: 375px) {
+  .container-w50{
+  max-width: 95%;
+  min-height: 640px;
+}
 }
 </style>

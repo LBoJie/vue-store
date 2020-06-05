@@ -1,9 +1,9 @@
 <template>
   <div class="bg-index wrap">
     <div class="alert-dismissible fade show text-center bg-cyan" role="alert">
-      廖氏木頭工房已經30歲囉! 周年慶活動開跑中
+      廖氏工房30周年活動開跑中
       <strong>
-        <router-link to="/coupons">了解更多折扣</router-link>
+        <router-link to="/coupons">了解更多資訊</router-link>
       </strong>
       <button type="button" class="close" @click="moveNavbar">
         <span aria-hidden="true">&times;</span>
@@ -45,7 +45,6 @@ import IndexNavbar from '../../components/frontend/IndexNavbar.vue';
 import Footer from '../../components/frontend/Footer.vue';
 
 export default {
-
   components: {
     IndexNavbar,
     Footer,
@@ -69,7 +68,6 @@ export default {
     },
   },
 };
-
 </script>
 <style lang="scss" scoped>
 .bg-index {
