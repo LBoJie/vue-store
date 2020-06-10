@@ -1,7 +1,9 @@
 <template>
-  <div>
+<div>
+  <div class="container">
+    <div class="row justify-content-center">
     <loading :active.sync="isLoading"></loading>
-    <div class="container-w50">
+    <div class="col-6 main">
       <h1 class="indexlogo bg-primary">
       <router-link
         to="/"
@@ -64,6 +66,8 @@
         </div>
       </form>
     </div>
+    </div>
+  </div>
     <Footer />
   </div>
 </template>
@@ -111,10 +115,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.container-w50{
-  max-width: 50%;
-  margin: 0 auto;
-  min-height: 800px;
+.main{
+  min-height: 800px; ;
 }
 
 .indexlogo{
@@ -125,10 +127,5 @@ export default {
      text-decoration: none;
    }
 }
-@media (max-width: 375px) {
-  .container-w50{
-  max-width: 95%;
-  min-height: 640px;
-}
-}
+
 </style>

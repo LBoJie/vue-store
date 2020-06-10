@@ -16,8 +16,8 @@
                 <span class="price">{{ item.price | currency }}</span>
               </div>
             </div>
-
             <h6 class="text-center">{{ item.title }}</h6>
+            <h6 class="text-center mobil-price">{{ item.price | currency }}</h6>
           </div>
         </div>
       </swiper-slide>
@@ -36,8 +36,8 @@
                 <span class="price">{{ item.price | currency }}</span>
               </div>
             </div>
-
             <h6 class="text-center">{{ item.title }}</h6>
+            <h6 class="text-center mobil-price">{{ item.price | currency }}</h6>
           </div>
         </div>
       </swiper-slide>
@@ -122,8 +122,12 @@ li {
   width: 23%;
   margin: 2% 1% 5% 1%;
   height: 150px;
+  color: #000;
 }
-
+.mobil-price {
+  opacity: 0;
+  margin-top: -10px;
+}
 .swiperImg {
   width: 100%;
   height: 100%;
@@ -162,13 +166,20 @@ li {
   right: 5px;
 }
 @media (max-width: 768px) {
-  .price {
+  .product {
+    margin: 2% 1% 10% 1%;
+  }
+  .picture:hover .showmore {
+    height: 0%;
+  }
+  .picture:hover .price {
+    opacity: 0;
+  }
+  .mobil-price {
     opacity: 1;
   }
   .goproduct {
     display: none;
   }
-}
-@media (max-width: 375px) {
 }
 </style>

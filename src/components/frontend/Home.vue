@@ -24,23 +24,18 @@
         </div>
         <div class="category d-flex flex-wrap justify-content-between">
           <router-link class="categoryAll" to="/products/all">
-            <img src="../../assets/image/allproducttitle1.jpg" alt />
             <h5 class="p-3 categoryTitle text-center">熱門產品&nbsp;&nbsp; HOT PRODUCTS</h5>
           </router-link>
-          <router-link class="categoryProducts" to="/products/sofa">
-            <img src="../../assets/image/sofa.jpg" alt />
+          <router-link class="categoryProducts sofaBg" to="/products/sofa">
             <h5 class="p-3 categoryTitle text-center">客廳家具&nbsp;&nbsp; LIVING ROOM</h5>
           </router-link>
-          <router-link class="categoryProducts" to="/products/diningtable">
-            <img src="../../assets/image/desk.jpg" alt />
+          <router-link class="categoryProducts deskBg" to="/products/diningtable">
             <h5 class="p-3 categoryTitle text-center">餐廳家具&nbsp; &nbsp;DINING ROOM</h5>
           </router-link>
-          <router-link class="categoryProducts" to="/products/bed">
-            <img src="../../assets/image/bed.jpg" alt />
+          <router-link class="categoryProducts bedBg" to="/products/bed">
             <h5 class="p-3 categoryTitle text-center">臥室家具&nbsp;&nbsp; BEDROOM</h5>
           </router-link>
-          <router-link class="categoryProducts" to="/products/wardrobe">
-            <img src="../../assets/image/wardrobet.jpg" alt />
+          <router-link class="categoryProducts wardrobetBg" to="/products/wardrobe">
             <h5 class="p-3 categoryTitle text-center">收納家具&nbsp;&nbsp; STORAGE ROOM</h5>
           </router-link>
         </div>
@@ -49,7 +44,7 @@
     <div class="mt-4" style="background:#f5f5f3;">
       <h2 class="py-5 showAlbum text-center font-weight-bold">[ 廖氏理念 ]</h2>
       <div class="guidelines container">
-        <div class="select-tree mb-5 p-2">
+        <div class="select-tree p-2">
           <img src="../../assets/image/album1.jpg" class="slidetree" />
           <div class="d-flex justify-content-center align-items-center principle-h">
             <div class="select-tree-content">
@@ -63,7 +58,7 @@
 
           <div class="clear"></div>
         </div>
-        <div class="pro-design mb-5 p-2">
+        <div class="pro-design p-2">
           <img src="../../assets/image/album2.jpg" class="slidepro" />
           <div class="d-flex justify-content-center align-items-center principle-h">
             <div class="pro-design-content">
@@ -74,7 +69,7 @@
             </div>
           </div>
         </div>
-        <div class="maker mb-5 p-2">
+        <div class="maker p-2">
           <img src="../../assets/image/album3.jpg" class="slidemaker" />
           <div class="d-flex justify-content-center align-items-center principle-h">
             <div class="maker-content">
@@ -86,7 +81,7 @@
             </div>
           </div>
         </div>
-        <div class="test mb-5 p-2">
+        <div class="test p-2">
           <img src="../../assets/image/album4.jpg" class="slidetest" />
           <div class="d-flex justify-content-center align-items-center principle-h">
             <div class="test-content">
@@ -196,13 +191,38 @@ export default {
     transition: all 0.4s;
     position: relative;
     width: 100%;
+    height: 300px;
     margin-bottom: 2%;
+    background-image: url("../../assets/image/allproducttitle1.jpg");
+    background-size: cover;
+    background-position: center center;
   }
   .categoryProducts {
     transition: all 0.4s;
     position: relative;
     width: 49%;
+    height: 300px;
     margin-bottom: 2%;
+  }
+  .sofaBg {
+    background-image: url("../../assets/image/sofa.jpg");
+    background-size: cover;
+    background-position: center center;
+  }
+  .deskBg {
+    background-image: url("../../assets/image/desk.jpg");
+    background-size: cover;
+    background-position: center center;
+  }
+  .bedBg {
+    background-image: url("../../assets/image/bed.jpg");
+    background-size: cover;
+    background-position: center center;
+  }
+  .wardrobetBg {
+    background-image: url("../../assets/image/wardrobet.jpg");
+    background-size: cover;
+    background-position: center center;
   }
   .categoryTitle {
     position: absolute;
@@ -403,11 +423,6 @@ export default {
 }
 @media (max-width: 375px) {
   .category {
-    .categoryAll {
-      img {
-        height: 230px;
-      }
-    }
     .categoryProducts {
       width: 100%;
     }
@@ -430,19 +445,31 @@ export default {
   .select-tree {
     width: 100%;
     float: none;
+    .select-tree-content {
+      margin-top: 50px;
+    }
   }
   .pro-design {
     width: 100%;
     float: none;
+    .pro-design-content {
+      margin-top: 50px;
+    }
   }
   .maker {
     width: 100%;
     float: none;
+    .maker-content {
+      margin-top: 50px;
+    }
   }
 
   .test {
     width: 100%;
     float: none;
+    .test-content {
+      margin-top: 50px;
+    }
   }
   .store {
     .map {

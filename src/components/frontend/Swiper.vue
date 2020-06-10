@@ -1,58 +1,51 @@
 <template>
-  <div class="swiperWidth">
-    <swiper :options="swiperOption" ref="mySwiper">
-      <!-- slides -->
-      <swiper-slide class="swiper-relative">
-        <div class="swiper-title">
-          <h2>所有系列</h2>
-          <h3>━━ 總有一款屬於你的家具</h3>
-        </div>
-        <router-link class="btn btn-light swiper-link text-center" to="/products/all">
-        立即選購</router-link>
-        <img class="swiperImg" src="../../assets/image/furniture1.jpg" alt />
-      </swiper-slide>
-      <swiper-slide class="swiper-relative">
-        <div class="swiper-title">
-          <h2>悠閒時光</h2>
-          <h3>━━ 靜靜品味人生的韻味</h3>
-        </div>
-        <router-link class="btn btn-warning swiper-link text-center" to="/products/sofa">
-        立即選購</router-link>
-        <img class="swiperImg" src="../../assets/image/furniture2.jpg" alt />
-      </swiper-slide>
-      <swiper-slide class="swiper-relative">
-        <div class="swiper-title">
-          <h2>愉快用餐</h2>
-          <h3>━━ 為佳餚增添幸福的滋味</h3>
-        </div>
-        <router-link class="btn btn-success swiper-link text-center" to="/products/diningtable">
-        立即選購</router-link>
-        <img class="swiperImg" src="../../assets/image/furniture3.jpg" alt />
-      </swiper-slide>
-      <swiper-slide class="swiper-relative">
-        <div class="swiper-title">
-          <h2>寧靜休憩</h2>
-          <h3>━━ 為勞累的身軀充電</h3>
-        </div>
-        <router-link class="btn btn-info swiper-link text-center" to="/products/bed">
-        立即選購</router-link>
-        <img class="swiperImg" src="../../assets/image/furniture4.jpg" alt />
-      </swiper-slide>
-      <swiper-slide class="swiper-relative">
-        <div class="swiper-title">
-          <h2>魔術空間</h2>
-          <h3>━━ 小巧的體積，魔術般的空間</h3>
-        </div>
-        <router-link class="btn btn-danger swiper-link text-center" to="/products/wardrobe">
-        立即選購</router-link>
-        <img class="swiperImg" src="../../assets/image/furniture5.jpg" alt />
-      </swiper-slide>
-      <!-- Optional controls -->
-      <div class="swiper-pagination" slot="pagination"></div>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
-    </swiper>
-  </div>
+  <swiper class="swiperWidth" :options="swiperOption" ref="mySwiper">
+    <!-- slides -->
+    <swiper-slide class="swiper-relative allBg">
+      <div class="swiper-title">
+        <h2>所有系列</h2>
+        <h3>━━ 總有一款屬於你的家具</h3>
+      </div>
+      <router-link class="btn btn-primary swiper-link text-center" to="/products/all">
+      立即選購</router-link>
+    </swiper-slide>
+    <swiper-slide class="swiper-relative sofaBg">
+      <div class="swiper-title">
+        <h2>悠閒時光</h2>
+        <h3>━━ 靜靜品味人生的韻味</h3>
+      </div>
+      <router-link class="btn btn-primary swiper-link text-center" to="/products/sofa">
+      立即選購</router-link>
+    </swiper-slide>
+    <swiper-slide class="swiper-relative tableBg">
+      <div class="swiper-title">
+        <h2>愉快用餐</h2>
+        <h3>━━ 為佳餚增添幸福的滋味</h3>
+      </div>
+      <router-link class="btn btn-primary swiper-link text-center" to="/products/diningtable">
+      立即選購</router-link>
+    </swiper-slide>
+    <swiper-slide class="swiper-relative bedBg">
+      <div class="swiper-title">
+        <h2>寧靜休憩</h2>
+        <h3>━━ 為勞累的身軀充電</h3>
+      </div>
+      <router-link class="btn btn-primary swiper-link text-center" to="/products/bed">
+      立即選購</router-link>
+    </swiper-slide>
+    <swiper-slide class="swiper-relative wardrobeBg">
+      <div class="swiper-title">
+        <h2>魔術空間</h2>
+        <h3>━━ 小體積，魔術般的空間</h3>
+      </div>
+      <router-link class="btn btn-primary swiper-link text-center" to="/products/wardrobe">
+      立即選購</router-link>
+    </swiper-slide>
+    <!-- Optional controls -->
+    <div class="swiper-pagination" slot="pagination"></div>
+    <div class="swiper-button-prev" slot="button-prev"></div>
+    <div class="swiper-button-next" slot="button-next"></div>
+  </swiper>
 </template>
 <script>
 import 'swiper/css/swiper.css';
@@ -64,7 +57,7 @@ export default {
     return {
       swiperOption: {
         autoplay: {
-          delay: 5000,
+          delay: 500000,
           disableOnInteraction: false,
         },
         pagination: {
@@ -95,15 +88,29 @@ export default {
 </script>
 <style lang="scss" scoped>
 .swiperWidth {
-  max-width: 100%;
-}
-.swiperImg {
-  width: 100%;
-  height: auto;
+  height: 800px;
 }
 .swiper-relative {
   position: relative;
   height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+.allBg {
+  background-image: url("../../assets/image/furniture1.jpg");
+}
+.sofaBg {
+  background-image: url("../../assets/image/furniture2.jpg");
+}
+.tableBg {
+  background-image: url("../../assets/image/furniture3.jpg");
+}
+.bedBg {
+  background-image: url("../../assets/image/furniture4.jpg");
+}
+.wardrobeBg {
+  background-image: url("../../assets/image/furniture5.jpg");
 }
 .swiper-title {
   position: absolute;
@@ -144,23 +151,12 @@ export default {
 .swiper-link:hover::after {
   transform: translate(0, 0);
 }
-
-@media (max-width: 768px) {
-  .swiper-absolute {
-    width: 40%;
-  }
-}
 @media (max-width: 375px) {
-  .swiper-absolute {
-    width: 80%;
+  .swiperWidth {
+    height: 375px;
   }
   .swiper-link {
     font-size: 12px;
-  }
-  .swiper-title {
-    h3 {
-      display: none;
-    }
   }
 }
 </style>

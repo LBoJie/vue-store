@@ -7,10 +7,19 @@
       >Liao's Factory</router-link>
     </h1>
     <div class="headerInfo d-flex flex-row-reverse align-items-center">
-      <button href="#" class="showmenu btn btn-outline-danger align-items-center" @click="showMenu">
+      <button
+        href="#"
+        class="showmenu btn btn-outline-danger align-items-center mr-2"
+        @click="showMenu"
+      >
         <i class="fas fa-bars"></i>
       </button>
-      <button class="btn btn-cart cart" type="button" @click="showCart" v-if="cart.carts">
+      <button
+        class="btn btn-cart cart mr-2 mr-md-1"
+        type="button"
+        @click="showCart"
+        v-if="cart.carts"
+      >
         <i class="fas fa-shopping-cart text-dark fa-2x"></i>
         <span
           class="badge badge-pill badge-danger"
@@ -229,7 +238,7 @@ h1 img {
   .menu {
     max-height: 0px;
     overflow: hidden;
-    transition: max-height 1s;
+    transition: max-height 0.3s;
     margin-top: 1px;
     position: absolute;
     z-index: 100;
