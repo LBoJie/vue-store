@@ -10,7 +10,7 @@
             @click="passProduct(item.id)"
           >
             <div class="picture">
-              <img :src="item.imageUrl" class="swiperImg" alt />
+              <div class="swiperImg" :style="{ backgroundImage: `url(${item.imageUrl})` }"></div>
               <div class="showmore">
                 <span class="goproduct border p-2">前往商品</span>
                 <span class="price">{{ item.price | currency }}</span>
@@ -30,7 +30,7 @@
             @click="passProduct(item.id)"
           >
             <div class="picture">
-              <img :src="item.imageUrl" class="swiperImg" alt />
+              <div class="swiperImg" :style="{ backgroundImage: `url(${item.imageUrl})` }"></div>
               <div class="showmore">
                 <span class="goproduct border p-2">前往商品</span>
                 <span class="price">{{ item.price | currency }}</span>
@@ -131,6 +131,8 @@ li {
 .swiperImg {
   width: 100%;
   height: 100%;
+  background-position: center;
+  background-size: cover;
 }
 .picture {
   height: 100%;

@@ -35,8 +35,8 @@
     </swiper-slide>
     <swiper-slide class="swiper-relative wardrobeBg">
       <div class="swiper-title">
-        <h2>魔術空間</h2>
-        <h3>━━ 小體積，魔術般的空間</h3>
+        <h2>極簡主義</h2>
+        <h3>━━ 簡單裝飾，高雅感受</h3>
       </div>
       <router-link class="btn btn-primary swiper-link text-center" to="/products/wardrobe">
       立即選購</router-link>
@@ -156,7 +156,11 @@ export default {
     height: 375px;
   }
   .swiper-link {
-    font-size: 12px;
+    font-size: 1rem;
+  }
+  .swiper-title {
+   left: 0;
+   top: 0;
   }
 }
 </style>

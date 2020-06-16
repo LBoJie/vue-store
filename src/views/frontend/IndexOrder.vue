@@ -3,7 +3,7 @@
     <loading :active.sync="isLoading"></loading>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-6">
+        <div class="col-12 col-md-6">
           <h1 class="indexlogo bg-primary">
             <router-link
               to="/"
@@ -341,6 +341,10 @@ li {
 @media (max-width: 375px) {
   .coupon-size {
     width: 100%;
+  }
+  .table th,
+  .table td {
+    padding: 0.75rem 0.4rem;
   }
 }
 </style>

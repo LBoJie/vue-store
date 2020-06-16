@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row justify-content-center">
     <loading :active.sync="isLoading"></loading>
-    <div class="col-6 main">
+    <div class="col-12 col-md-6 main">
       <h1 class="indexlogo bg-primary">
       <router-link
         to="/"
