@@ -14,4 +14,3 @@
   
 * Demo
 <https://lbojie.github.io/vue-store/#/>
-See [Configuration Reference](https://cli.vuejs.org/config/).
